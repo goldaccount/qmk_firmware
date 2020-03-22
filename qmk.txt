@@ -1,0 +1,50 @@
+QMK
+===========
+sudo apt update -yq
+sudo apt upgrade -yq
+sudo apt-get -yq install \
+        build-essential \
+        avr-libc \
+        binutils-arm-none-eabi \
+        binutils-avr \
+        clang-format \
+        dfu-programmer \
+        dfu-util \
+        diffutils \
+        gcc \
+        gcc-arm-none-eabi \
+        gcc-avr \
+        git \
+        libnewlib-arm-none-eabi \
+        libusb-dev \
+        python3 \
+        python3-pip \
+        unzip \
+        wget \
+        zip
+
+#Get Pip
+wget https://bootstrap.pypa.io/get-pip.py
+python3 get-pip.py 
+
+#Install QMK with pip
+python3 -m pip install qmk
+
+#If PATH error, copy binaries in message to /usr/local/bin
+cp /home/ubuntu/.local/bin /usr/local/bin
+
+ubuntu@ip-172-31-19-18:~/qmk$ ls /usr/local/bin
+activate-global-python-argcomplete  nose2        python-argcomplete-check-easy-install-script
+coverage                            nose2-3.6    python-argcomplete-tcsh
+coverage-3.6                        pip          qmk
+coverage3                           pip3         register-python-argcomplete
+flake8                              pip3.6       yapf
+hjson                               pycodestyle
+hjson.cmd                           pyflakes
+
+#Make qmk folder, cd to it
+mkdir qmk
+cd qmk
+qmk setup
+
+#Select yes to install missing submodules: LUFA, DFU etc
