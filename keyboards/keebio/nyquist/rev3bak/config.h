@@ -22,7 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PRODUCT_ID      0x1156
 #define DEVICE_VER      0x0300
 #define MANUFACTURER    Keebio
-//#define PRODUCT         The Nyquist Keyboard
+#define PRODUCT         The Nyquist Keyboard
 #define DESCRIPTION     Split 60 percent ortholinear keyboard
 
 /* key matrix size */
@@ -54,13 +54,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* ws2812 RGB LED */
 #define RGB_DI_PIN B4
-//#define RGBLIGHT_ANIMATIONS
+#define RGBLIGHT_ANIMATIONS
 #define RGBLED_NUM 12
 #define RGBLED_SPLIT { 6, 6 }
 
 /* Backlight LEDs */
 #define BACKLIGHT_PIN B5
-#define BACKLIGHT_LEVELS 5
+#define BACKLIGHT_LEVELS 7
 
 /*
  * Feature disable options
@@ -68,36 +68,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 /* disable debug print */
-//#define NO_DEBUG
+// #define NO_DEBUG
 
 /* disable print */
-//#define NO_PRINT
-
-#define FORCE_NKRO
-#define ONESHOT_TAP_TOGGLE 3
-#define ONESHOT_TIMEOUT 5000
-#define PERMISSIVE_HOLD
-#define TAPPING_TERM 200
-#define TAPPING_TOGGLE 3
-#define IGNORE_MOD_TAP_INTERRUPT
-#define GRAVE_ESC_CTRL_OVERRIDE
-#define BOOTMAGIC_LITE_ROW 0
-#define BOOTMAGIC_LITE_COLUMN 0
-//#undef RGBLED_NUM
-#undef RGBLIGHT_ANIMATIONS
-#define RGBLIGHT_EFFECT_BREATHING
-#define RGBLIGHT_EFFECT_STATIC_GRADIENT
-#define RGBLIGHT_EFFECT_RAINBOW_MOOD
-#define RGBLIGHT_EFFECT_ALTERNATING
-#define RGBLIGHT_EFFECT_BREATHE_CENTER 2.7
-#define RGBLIGHT_SLEEP
-
-#define RGBLIGHT_HUE_STEP 15
-#define RGBLIGHT_SAT_STEP 8
-#define RGBLIGHT_VAL_STEP 8
-
-#undef NO_ACTION_ONESHOT
-//#define BACKLIGHT_PERIOD 5
+// #define NO_PRINT
 
 /* disable action features */
 //#define NO_ACTION_LAYER

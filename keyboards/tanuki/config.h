@@ -25,18 +25,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PRODUCT_ID      0x6464
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    Seth
-#define PRODUCT         Tanuki PCB version
-#define DESCRIPTION     Handwired 40% keyboard
+#define PRODUCT         Tanuki by NR
+#define DESCRIPTION     40% Trash Panda keyboard
 
 /* key matrix size */
 #define MATRIX_ROWS 4
 #define MATRIX_COLS 11
 
+#define DIODE_DIRECTION COL2ROW
 #define MATRIX_COL_PINS {  B3 , B2 , B6 , B5 , B4 , E6 , D7 , C6 , F4 , F5 , F6 }
 #define MATRIX_ROW_PINS {  F7 , B1 , D4 , D0 }
 #define UNUSED_PINS
-
-#define DIODE_DIRECTION COL2ROW
 
 /* define if matrix has ghost */
 //#define MATRIX_HAS_GHOST
@@ -44,34 +43,44 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Set 0 if debouncing isn't needed */
 #define DEBOUNCE    5
 
+
+
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
 #define LOCKING_SUPPORT_ENABLE
 /* Locking resynchronize hack */
 #define LOCKING_RESYNC_ENABLE
 
 #define RGB_DI_PIN D1
+#define RGBLED_NUM 12
 #ifdef RGB_DI_PIN
-#define RGBLIGHT_ANIMATIONS
-#define RGBLED_NUM 5
-#define RGBLIGHT_HUE_STEP 10
-#define RGBLIGHT_SAT_STEP 17
-#define RGBLIGHT_VAL_STEP 17
+#undef RGBLIGHT_ANIMATIONS
+#define RGBLIGHT_EFFECT_BREATHING
+#define RGBLIGHT_EFFECT_STATIC_GRADIENT
+#define RGBLIGHT_EFFECT_RAINBOW_MOOD
+//#define RGBLIGHT_EFFECT_ALTERNATING
+#define RGBLIGHT_EFFECT_BREATHE_CENTER 2.5
 #define RGBLIGHT_SLEEP
 #endif
 
+
+#define FORCE_NKRO
+#define ONESHOT_TAP_TOGGLE 3
+#define ONESHOT_TIMEOUT 5000
+#define PERMISSIVE_HOLD
 #define TAPPING_TERM 200
-/*
- * Feature disable options
- *  These options are also useful to firmware size reduction.
- */
+#define TAPPING_TOGGLE 3
+#define IGNORE_MOD_TAP_INTERRUPT
+#define GRAVE_ESC_CTRL_OVERRIDE
+#define BOOTMAGIC_LITE_ROW 0	/* Bootmagic key = Left Esc */
+#define BOOTMAGIC_LITE_COLUMN 0
 
-/* disable debug print */
-//#define NO_DEBUG
-
-/* disable print */
-//#define NO_PRINT
+//Mouse config
+//#define MOUSEKEY_INTERVAL 16
+//#define MOUSEKEY_WHEEL_TIME_TO_MAX 20
 
 /* disable action features */
+//#define NO_DEBUG
+//#define NO_PRINT
 //#define NO_ACTION_LAYER
 //#define NO_ACTION_TAPPING
 //#define NO_ACTION_ONESHOT
