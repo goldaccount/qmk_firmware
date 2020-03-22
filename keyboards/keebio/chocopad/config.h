@@ -8,7 +8,7 @@
 #define PRODUCT_ID      0x1144
 #define DEVICE_VER      0x0100
 #define MANUFACTURER    Keebio
-#define PRODUCT         Chocopad
+#define PRODUCT         Chocopad by NR
 #define DESCRIPTION     4x4 macropad using Kailh Choc low-profile switches
 
 /* key matrix size */
@@ -17,7 +17,17 @@
 
 /* key matrix pins */
 #define MATRIX_ROW_PINS { D7, E6, B3, B2 }
-#define MATRIX_COL_PINS { D2, D4, F6, F5 }
+#define MATRIX_COL_PINS { D2, D4, F6, F4 }
+/*
+D2, D4, F6, F4
+              D7
+			  E6
+			  B3
+			  B2
+*/
+//#define QMK_ESC_OUTPUT D7
+//#define QMK_ESC_INPUT D2
+//#define QMK_LED     E6
 
 /* COL2ROW or ROW2COL */
 #define DIODE_DIRECTION COL2ROW
@@ -25,6 +35,8 @@
 /* number of backlight levels */
 #define BACKLIGHT_PIN B5
 #define BACKLIGHT_LEVELS 6
+#define BACKLIGHT_BREATHING
+#define BREATHING_PERIOD 3
 
 /* Set 0 if debouncing isn't needed */
 #define DEBOUNCE 5
@@ -35,8 +47,23 @@
 /* Locking resynchronize hack */
 #define LOCKING_RESYNC_ENABLE
 
+#define FORCE_NKRO
+#define ONESHOT_TAP_TOGGLE 3
+#define ONESHOT_TIMEOUT 5000
+#define PERMISSIVE_HOLD
+#define TAPPING_TERM 200
+#define TAPPING_TOGGLE 3
+#define IGNORE_MOD_TAP_INTERRUPT
+
+#define BOOTMAGIC_LITE_ROW 0
+#define BOOTMAGIC_LITE_COLUMN 0
+
+
+
+#undef RGBLED_NUM
+#undef RGBLIGHT_ANIMATIONS
 #ifdef RGB_DI_PIN
-#define RGBLIGHT_ANIMATIONS
+//#define RGBLIGHT_ANIMATIONS
 #define RGBLIGHT_HUE_STEP 8
 #define RGBLIGHT_SAT_STEP 8
 #define RGBLIGHT_VAL_STEP 8
