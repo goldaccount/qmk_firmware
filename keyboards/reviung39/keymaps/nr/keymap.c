@@ -31,8 +31,6 @@ enum custom_keycodes {
   FN03,
   FN04,
   FN05,
-  SPSK,
-  RPSK,
   FN16,
 };
 
@@ -55,10 +53,6 @@ enum custom_keycodes {
 #define KC_RSAI RGB_SAI
 #define KC_RSAD RGB_SAD
 
-#define KC_RPSK RPSK
-#define KC_SPSK SPSK
-
-
 #define KC_EN05 LT(_FN05,KC_ENT)
 //#define KC_EN03 LT(_FN03,KC_ENT)
 //#define KC_EN04 LT(_FN04,KC_ENT)
@@ -76,40 +70,84 @@ enum custom_keycodes {
 #define KC_CAPW A(KC_PSCR)
 #define KC_CAPG G(A(KC_PSCR))
 
+//Alpha mod
+#define KC_CTLA LCTL_T(KC_A)
+#define KC_ALTZ LALT_T(KC_Z)
+#define KC_ALCO LALT_T(KC_COMM)
+#define KC_CTLD LCTL_T(KC_DOT)
+
+enum combo_events {
+	QW_ESC,
+	WF_TAB,
+};
+
+const uint16_t PROGMEM esc_combo[] = {KC_Q, KC_W, COMBO_END};
+const uint16_t PROGMEM tab_combo[] = {KC_W, KC_F, COMBO_END};
+
+combo_t key_combos[COMBO_COUNT] = {
+	[QW_ESC] = COMBO_ACTION(esc_combo),
+	[WF_TAB] = COMBO_ACTION(tab_combo),
+};
+
+void process_combo_event(uint8_t combo_index, bool pressed) {
+	switch(combo_index) {
+		case QW_ESC:
+			if (pressed) {
+				tap_code16(KC_ESC);
+			}
+			break;
+		case WF_TAB:
+			if (pressed) {
+				tap_code16(KC_TAB);
+			}
+			break;
+	}
+}
+
+enum {
+	TD_SMQT = 0
+};
+
+qk_tap_dance_action_t tap_dance_actions[] = {
+	[TD_SMQT] = ACTION_TAP_DANCE_DOUBLE(KC_SCLN,KC_QUOT)
+};
+
+#define KC_SMQT TD(TD_SMQT)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	
   [_QWERTY] = LAYOUT_revi39(
     ALTA,   Q,   W,   E,   R,   T,        Y,   U,   I,   O,   P,BSPC, \
-    LCTL,   A,   S,   D,   F,   G,        H,   J,   K,   L,SCLN,QUOT, \
+    LCTL,   A,   S,   D,   F,   G,        H,   J,   K,   L,SMQT,QUOT, \
     OSFT,   Z,   X,   C,   V,   B,        N,   M,COMM, DOT,WISL,BSLS, \
 							 OS03, SP04,EN05 \
   ),
 
   [_COLEMAK] = LAYOUT_revi39(
-    ALTA,   Q,   W,   F,   P,   G,        J,   L,   U,   Y,SCLN,BSPC, \
-    LCTL,   A,   R,   S,   T,   D,        H,   N,   E,   I,   O,QUOT, \
+    ALTA,   Q,   W,   F,   P,   G,        J,   L,   U,   Y,SMQT,BSPC, \
+    LCTL,   A,   R,   S,   T,   D,        H,   N,   E,   I,   O, DEL, \
     OSFT,   Z,   X,   C,   V,   B,        K,   M,COMM, DOT,WISL,BSLS, \
 							 OS03, SP04,EN05 \
   ),
   
   [_FN03] = LAYOUT_revi39(
-    ATAB,PGUP,HOME,  UP, END, INS,      CIRC,AMPR,ASTR,LPRN,RPRN, DEL, \
-    BSPC,PGDN,LEFT,DOWN,RGHT, ENT,      EXLM,  AT,HASH, DLR,PERC, GRV, \
+    ATAB,PGUP,HOME,  UP, END, INS,      CIRC,AMPR,ASTR,LPRN,RPRN,TILD, \
+     DEL,PGDN,LEFT,DOWN,RGHT, ENT,      EXLM,  AT,HASH, DLR,PERC, GRV, \
     CAPS,MUTE,VOLD,VOLU,MPRV,MNXT,      MINS, EQL,LBRC,RBRC,    ,PIPE, \
-                                 , MPLY, ENT \
+                                 , MPLY,     \
   ),
   
   [_FN04] = LAYOUT_revi39(
-     ESC,   ,    ,    ,    ,CALC,         7,   8,   9,PPLS,PMNS,    , \
-        ,   ,    ,    ,    ,    ,         4,   5,   6,PAST,PSLS,    , \
-        ,   ,    ,CAPW,CAPC,CAPG,         1,   2,   3,PDOT,LGUI,    , \
-                             TAB,     ,   0  \
+     ESC,    ,BTN4,WH_L,WH_R,WH_U,         7,   8,   9,PPLS,PMNS,CALC, \
+        ,    ,BTN3,BTN2,BTN1,WH_D,         4,   5,   6,PAST,PSLS,    , \
+        ,    ,BTN5,CAPW,CAPC,CAPG,         1,   2,   3,PDOT,    ,    , \
+                              TAB,     ,   0  \
   ),  
   
   [_FN05] = LAYOUT_revi39(
     RTOG,RMOD,RHUI,RSAI,RVAI,    ,          ,  F9, F10, F11, F12, RST, \
-    COLE,    ,RBRC,LBRC,UNDS,MINS,          ,  F5,  F6,  F7,  F8,    , \
-    QWER,    ,RCBR,LCBR,PLUS, EQL,          ,  F1,  F2,  F3,  F4,    , \
+    COLE,    ,RBRC,LBRC,UNDS,MINS,          ,  F5,  F6,  F7,  F8,COLE, \
+    QWER,    ,RCBR,LCBR,PLUS, EQL,          ,  F1,  F2,  F3,  F4,QWER, \
                                  ,     ,     \
   ),
 
@@ -155,7 +193,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
      }
      return false;
      break;
-	*/
     case FN03:
      if (record->event.pressed) {
        layer_on(_FN03);
@@ -166,7 +203,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
      }
      return false;
      break;
-	/*
     case FN04:
      if (record->event.pressed) {
        layer_on(_FN04);
@@ -187,27 +223,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	 }
 	 return false;
 	 break;
-	 */
-	/*case SPSK:
-	 if (record->event.pressed) {
-		 //SEND_STRING("qwfp312/" SS_TAP(X_ENTER);
-		 send_string(spsk);
-	 } else {
-		 SEND_STRING(SS_TAP(X_ENTER));
-	 }
-	 return false;
-	 break;
-	 case RPSK:
-	 if (record->event.pressed) {
-		 //SEND_STRING("arst@1234" SS_TAP(X_ENTER);
-		 send_string(rpsk);
-	 } else {
-		 SEND_STRING(SS_TAP(X_ENTER));
-	 }
-	 return false;
-	 break;
-	*/
-    /*
 	case FN16:
      if (record->event.pressed) {
        layer_on(_FN16);

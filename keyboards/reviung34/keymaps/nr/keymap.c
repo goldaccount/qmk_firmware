@@ -82,7 +82,7 @@ enum custom_keycodes {
 
 //Combos
 const uint16_t PROGMEM esc_combo[] = {KC_Q, KC_W, COMBO_END};
-const uint16_t PROGMEM tab_combo[] = {KC_W, KC_E, COMBO_END};
+const uint16_t PROGMEM tab_combo[] = {KC_W, KC_F, COMBO_END};
 
 //Simple combo
 /*
@@ -100,12 +100,12 @@ combo_t key_combos[] = {
 //Complex combo:
 enum combo_events {
 	QW_ESC,
-	WE_TAB,
+	WF_TAB,
 };
 
 combo_t key_combos[COMBO_COUNT] = {
 	[QW_ESC] = COMBO_ACTION(esc_combo),
-	[WE_TAB] = COMBO_ACTION(tab_combo),
+	[WF_TAB] = COMBO_ACTION(tab_combo),
 };
 
 void process_combo_event(uint8_t combo_index, bool pressed) {
@@ -115,7 +115,7 @@ void process_combo_event(uint8_t combo_index, bool pressed) {
 				tap_code16(KC_ESC);
 			}
 			break;
-		case WE_TAB:
+		case WF_TAB:
 			if (pressed) {
 				tap_code16(KC_TAB);
 			}
@@ -154,21 +154,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     PGUP,HOME,  UP, END, INS,      CIRC,AMPR,ASTR,LPRN,RPRN, 
     PGDN,LEFT,DOWN,RGHT, ENT,      EXLM,  AT,HASH, DLR,PERC, 
     MUTE,VOLD,VOLU,MPRV,MNXT,      MINS, EQL,LBRC,RBRC,BSLS, 
-               TAB,    ,MPLY,       ESC//
+               TAB,    ,MPLY,      ESC//
   ),
 
   [_FN04] = LAYOUT_rev34(
     TILD, GRV,    ,    ,    ,          ,  F9, F10, F11, F12, 
     PIPE,RBRC,LBRC,UNDS,MINS,          ,  F5,  F6,  F7,  F8, 
     BSLS,RCBR,LCBR,PLUS, EQL,          ,  F1,  F2,  F3,  F4, 
-               ESC, DEL,    ,          //     
+                  , DEL,    ,          //     
   ),
 
   [_FN05] = LAYOUT_rev34(
-     RST,QWER,COLE,    ,    ,         7,   8,   9,PPLS,PMNS, 
-        ,    ,    ,    ,    ,         4,   5,   6,PAST,PSLS, 
-        ,    ,    ,    ,    ,         1,   2,   3,   0,PDOT, 
-              CAPW,CAPC,CAPG,          //
+     RST,BTN4,WH_L,WH_R,WH_U,         7,   8,   9,PPLS,PMNS, 
+    QWER,BTN3,BTN2,BTN1,WH_D,         4,   5,   6,PAST,PSLS, 
+    COLE,BTN5,CAPW,CAPC,CAPG,         1,   2,   3,   0,PDOT, 
+                  ,    ,    ,          //
   ),
 /*  
   [_FN16] = LAYOUT_rev34(

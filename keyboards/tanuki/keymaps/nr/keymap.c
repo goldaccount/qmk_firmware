@@ -78,7 +78,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_FN03] = LAYOUT_tanuki( \
 	 DEL,PGUP,HOME,  UP, END, INS,CIRC,AMPR,ASTR,LPRN,RPRN,  GRV, 	\
-	 BSPC,PGDN,LEFT,DOWN,RGHT,    ,EXLM,  AT,HASH, DLR,PERC,TILD, 	\
+	 ESC,PGDN,LEFT,DOWN,RGHT,    ,EXLM,  AT,HASH, DLR,PERC,BSLS, 	\
 	   CAPS,MUTE,VOLD,VOLU,    , EQL,MINS,LBRC,RBRC,LCBR,RCBR, 		\
 	      MPRV,MNXT,    ,    MPLY,        ,    ,      				\
 	),

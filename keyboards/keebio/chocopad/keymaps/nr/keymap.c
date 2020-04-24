@@ -1,30 +1,7 @@
 #include QMK_KEYBOARD_H
+#include "defnr.h"
+
 extern keymap_config_t keymap_config;
-
-#define _BASE 0
-#define _FN01 1
-#define _FN02 2
-#define _FN03 3
-#define _FN04 4
-#define _FN16 16
-
-enum custom_keycodes {
-	BASE = SAFE_RANGE,
-	FN01,
-	FN02,
-	FN03,
-	FN04,
-	FN16,
-};
-
-#define KC_ KC_TRNS
-#define KC_RST RESET
-
-#define KC_ KC_TRNS
-#define KC_RST RESET
-#define KC_BASE BASE
-#define KC_FN01 FN01
-#define KC_FN16 FN16
 
 #define KC_EN02 LT(_FN02,KC_ENT)
 #define KC_BS01 LT(_FN01,KC_BSPC)
@@ -32,22 +9,13 @@ enum custom_keycodes {
 #define KC_MU16 LT(_FN16,KC_MUTE)
 
 //Navigation
-#define KC_NXTB C(KC_PGDN)
-#define KC_PVTB C(KC_PGUP)
-#define KC_RTAB C(S(KC_T))
 #define KC_CTAB C(KC_W)
-#define KC_TPRV KC_WBAK
-#define KC_TNXT KC_WFWD
 
 //Photoshop
 #define KC_PEXP MEH(KC_W)
 
 //Docs
-#define KC_UNDZ	C(KC_Z)
-#define KC_REDZ C(KC_Y)
-#define KC_COPP C(KC_C)
 #define KC_CUTT C(KC_X)
-#define KC_PATE C(KC_V)
 
 //Word
 #define KC_PAT2 C(A(KC_V))		//Paste Special
@@ -75,30 +43,30 @@ enum custom_keycodes {
 #define KC_RSAI RGB_SAI
 #define KC_RSAD RGB_SAD
 
-#define KC_BTOG	BL_TOGG 
+#define KC_BLON	BL_TOGG 
 #define KC_BLLV	BL_STEP
-#define KC_BBRT	BL_BRTG
+#define KC_BLBR	BL_BRTG
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-  [_BASE] = LAYOUT_kc(
+  [_COLEMAK] = LAYOUT_kc(
 //┌────┬────┬────┬────┐
-   VOLD,VOLU,TPRV,TNXT, \
+   CTAB,FWPV,NEWT,NXTB, \
 //├────┼────┼────┼────┤
-   CTAB,RTAB,PVTB,NXTB, \
+   VOLD,VOLU,PUUP,CPPT, \
 //├────┼────┼────┼────┤
-   BSPC,SPC,PATE,COPP, \
+   URDO,HOLE,PDDO,ENRI, \
 //├────┼────┼────┼────┤
-   FN16,MP03,BS01,EN02  \
+   MU16,    ,BS01,EN02  \
 //└────┴────┴────┴────┘
   ),
   [_FN01] = LAYOUT_kc(
 //┌────┬────┬────┬────┐
-       ,    ,    ,    , \
-//├────┼────┼────┼────┤
    MSEL,MPRV,MNXT,MPLY, \
 //├────┼────┼────┼────┤
-       ,    ,    ,CUTT, \
+       ,    ,WH_U,CUTT, \
+//├────┼────┼────┼────┤
+       ,WH_L,WH_D,WH_R, \
 //├────┼────┼────┼────┤
    MUTE,    ,    ,      \
 //└────┴────┴────┴────┘
@@ -138,13 +106,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_FN16] = LAYOUT_kc(
 //┌────┬────┬────┬────┐
-       ,    ,    , RST, \
+   BLON,BLBR,    , RST, \
 //├────┼────┼────┼────┤
        ,    ,    ,    , \
 //├────┼────┼────┼────┤
-       ,    ,    ,BBRT, \
+       ,    ,    ,    , \
 //├────┼────┼────┼────┤
-       ,    ,BLLV,BTOG  \
+       ,    ,    ,       \
 //└────┴────┴────┴────┘
   )
 
@@ -155,9 +123,20 @@ void persistent_default_layer_set(uint16_t default_layer) {
   default_layer_set(default_layer);
 }
 
+layer_state_t layer_state_set_user(layer_state_t state) {
+	switch (get_highest_layer(state)) {
+		case _COLEMAK:
+			backlight_enable();
+			break;
+		case _FN16:
+			backlight_disable();
+			break;
+	}
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-    case BASE:
+    case COLEMAK:
      if (record->event.pressed) {
        persistent_default_layer_set(1UL<<_BASE);
      }
@@ -166,10 +145,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	case FN16:
      if (record->event.pressed) {
        layer_on(_FN16);
-	   backlight_enable();
+	   //backlight_enable();
      } else {
 		 layer_off(_FN16);
-		 backlight_disable();
+		 //backlight_disable();
 	 }
      return false;
      break; 

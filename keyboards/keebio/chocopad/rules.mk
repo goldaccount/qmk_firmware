@@ -44,8 +44,8 @@ OPT_DEFS += -DBOOTLOADER_SIZE=4096
 # Build Options
 #   comment out to disable the options.
 #
-BOOTMAGIC_ENABLE = full	# Virtual DIP switch configuration(+1000)
-MOUSEKEY_ENABLE = no	# Mouse keys(+4700)
+BOOTMAGIC_ENABLE = lite	# Virtual DIP switch configuration(+1000)
+MOUSEKEY_ENABLE = yes	# Mouse keys(+4700)
 EXTRAKEY_ENABLE = yes	# Audio control and System control(+450)
 CONSOLE_ENABLE = no		# Console for debug(+400)
 COMMAND_ENABLE = no    	
@@ -55,3 +55,5 @@ BACKLIGHT_ENABLE = yes
 AUDIO_ENABLE = no
 RGBLIGHT_ENABLE = no
 LAYOUTS = ortho_4x4
+RGBLIGHT_ENABLE = yes
+TAP_DANCE_ENABLE = yes		# Enable Tap Dance

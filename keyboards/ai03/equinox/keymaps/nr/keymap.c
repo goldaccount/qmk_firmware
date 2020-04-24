@@ -71,7 +71,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_FN03] = LAYOUT_3u(
 	   DEL,PGUP,HOME,  UP, END, INS,CIRC,AMPR,ASTR,LPRN,RPRN,   GRV, 	
-       BSPC,PGDN,LEFT,DOWN,RGHT,PLUS,EXLM,  AT,HASH, DLR,PERC, TILD, 	
+       BSPC,PGDN,LEFT,DOWN,RGHT,PLUS,EXLM,  AT,HASH, DLR,PERC, BSLS, 	
      CAPS,CAPS,MUTE,VOLD,VOLU,UNDS, EQL,MINS,LBRC,RBRC,LCBR,   RCBR, 	
      MPRV,MNXT,     ,          MPLY,              ,     ,    ,          
   ),
