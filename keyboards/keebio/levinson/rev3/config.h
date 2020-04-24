@@ -25,7 +25,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PRODUCT_ID      0x1146
 #define DEVICE_VER      0x0300
 #define MANUFACTURER    Keebio
-#define PRODUCT         Levinson
+#define PRODUCT         Levinson by NR
 #define DESCRIPTION     Split 40 percent ortholinear keyboard
 
 /* key matrix size */
@@ -34,13 +34,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MATRIX_COLS 6
 
 // wiring of each half
-#define MATRIX_ROW_PINS { D4, E6, B4, B5 }
-#define MATRIX_COL_PINS { D3, F4, F7, B1, B3, B2 }
-#define MATRIX_ROW_PINS_RIGHT { D4, B2, B3, B1 }
-#define MATRIX_COL_PINS_RIGHT { F4, F7, D3, B5, B4, E6 }
-#define SPLIT_HAND_PIN D2
-
 #define DIODE_DIRECTION COL2ROW
+#define MATRIX_ROW_PINS { D4, E6, B4, B5 } //F6
+#define MATRIX_COL_PINS { D3, F4, F7, B1, B3, B2 }
+#define MATRIX_ROW_PINS_RIGHT { D4, B2, B3, B1 } //B6, F6, D7
+#define MATRIX_COL_PINS_RIGHT { F4, F7, D3, B5, B4, E6 } 
+#define SPLIT_HAND_PIN D2
 
 /* Set 0 if debouncing isn't needed */
 #define DEBOUNCE 5
@@ -55,9 +54,26 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* ws2812 RGB LED */
 #define RGB_DI_PIN D7
-#define RGBLED_NUM 12    // Number of LEDs
-#define RGBLED_SPLIT { 6, 6 }
 
 /* Backlight LEDs */
 #define BACKLIGHT_PIN B6
-#define BACKLIGHT_LEVELS 7
+#define BACKLIGHT_LEVELS 5
+#undef RGBLIGHT_ANIMATIONS
+
+#define GRAVE_ESC_CTRL_OVERRIDE
+#define FORCE_NKRO
+#define ONESHOT_TAP_TOGGLE 3
+#define ONESHOT_TIMEOUT 200
+#define PERMISSIVE_HOLD
+#define TAPPING_TERM 100
+#define TAPPING_TOGGLE 3
+#define IGNORE_MOD_TAP_INTERRUPT
+#define COMBO_COUNT 2
+#define COMBO_TERM 100
+/* Bootmagic Lite key configuration */
+#define BOOTMAGIC_LITE_ROW 0
+#define BOOTMAGIC_LITE_COLUMN 0
+//Mouse config
+#define MOUSEKEY_INTERVAL 16
+#define MOUSEKEY_MAX_SPEED 7
+#define MOUSEKEY_WHEEL_TIME_TO_MAX 100

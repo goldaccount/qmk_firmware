@@ -1,12 +1,7 @@
 #include QMK_KEYBOARD_H
 
 extern keymap_config_t keymap_config;
-
-// Each layer gets a name for readability, which is then used in the keymap matrix below.
-// The underscores don't mean anything - you can have a layer called STUFF or any other name.
-// Layer names don't all need to be of the same length, obviously, and you can also skip them
-// entirely and just use numbers.
-
+//Layer definitions
 #define _QWERTY 0
 #define _COLEMAK 1
 #define _DVORAK 2
@@ -16,15 +11,12 @@ extern keymap_config_t keymap_config;
 #define _FN16 16
 
 enum custom_keycodes {
-  QWERTY = SAFE_RANGE,
-  COLEMAK,
+  COLEMAK = SAFE_RANGE,
+  QWERTY,
   DVORAK,
   FN03,
   FN04,
   FN05,
-  SPSK,
-  RPSK,
-  FN16,
 };
 
 #define KC_QWER QWERTY 
@@ -46,122 +38,162 @@ enum custom_keycodes {
 #define KC_RSAI RGB_SAI
 #define KC_RSAD RGB_SAD
 
-#define KC_BLON BL_TOGG
-#define KC_BLLV BL_STEP
-#define KC_BLBR BL_BRTG
-
 #define KC_RPSK RPSK
 #define KC_SPSK SPSK
-#define KC_ME04 LT(FN04,KC_MENU)
-#define KC_EN03 LT(FN03,KC_ENT)
-#define KC_OS04 OSL(FN04)
-#define KC_OS03 OSL(FN03)
+#define KC_EN05 LT(_FN05,KC_ENT)
+//#define KC_EN03 LT(_FN03,KC_ENT)
+#define KC_BS04 LT(_FN04,KC_BSPC)
+//#define KC_OS04 OSL(_FN04)
+#define KC_OS03 OSL(_FN03)
 #define KC_OSFT OSM(MOD_LSFT)
 #define KC_ALAP LALT_T(KC_MENU)
-#define KC_CTBS LCTL_T(KC_BSPC)
+//#define KC_CTBS LCTL_T(KC_BSPC)
 #define KC_CAPC G(S(KC_S))
 #define KC_CAPW A(KC_PSCR)
 #define KC_CAPG G(A(KC_PSCR))
 
+//Alpha mod
+#define KC_CTLA LCTL_T(KC_A)
+#define KC_ALTZ LALT_T(KC_Z)
+#define KC_ALCO LALT_T(KC_COMM)
+#define KC_CTLD LCTL_T(KC_DOT)
+
+//other variables
+//int mCalled = 0;
+//bool blockToggle = false;
+//bool lRGB = true
+
+const uint16_t PROGMEM esc_combo[] = {KC_Q, KC_W, COMBO_END};
+const uint16_t PROGMEM tab_combo[] = {KC_W, KC_F, COMBO_END};
+
+//Simple combo
+/*
+enum combos {
+	QW_ESC,
+	WE_TAB,
+};
+
+combo_t key_combos[] = {
+	[QW_ESC] = COMBO(esc_combo, KC_ESC),
+	[WE_TAB] = COMBO(tab_combo, KC_TAB)
+};
+*/
+
+//Complex combo:
+enum combo_events {
+	QW_ESC,
+	WF_TAB,
+};
+
+combo_t key_combos[COMBO_COUNT] = {
+	[QW_ESC] = COMBO_ACTION(esc_combo),
+	[WF_TAB] = COMBO_ACTION(tab_combo),
+};
+
+enum {
+	TD_SMQT = 0,
+	TD_XPRN,
+	TD_XBRC,
+	TD_XCBR,
+	TD_XBSL,
+	TD_XMIN,
+	TD_XGRV,
+	TD_XEQL
+};
+
+qk_tap_dance_action_t tap_dance_actions[] = {
+	[TD_SMQT] = ACTION_TAP_DANCE_DOUBLE(KC_SCLN,KC_QUOT),
+	[TD_XPRN] = ACTION_TAP_DANCE_DOUBLE(KC_LPRN,KC_RPRN),
+	[TD_XBRC] = ACTION_TAP_DANCE_DOUBLE(KC_LBRC,KC_RBRC),
+	[TD_XCBR] = ACTION_TAP_DANCE_DOUBLE(KC_LCBR,KC_RCBR),
+	[TD_XBSL] = ACTION_TAP_DANCE_DOUBLE(KC_BSLS,KC_PIPE),
+	[TD_XMIN] = ACTION_TAP_DANCE_DOUBLE(KC_MINS,KC_UNDS),
+	[TD_XGRV] = ACTION_TAP_DANCE_DOUBLE(KC_GRV,KC_TILD),
+	[TD_XEQL] = ACTION_TAP_DANCE_DOUBLE(KC_EQL,KC_PLUS)
+};
+
+#define KC_SMQT TD(TD_SMQT)
+#define KC_XPRN TD(TD_XPRN)
+#define KC_XBRC TD(TD_XBRC)
+#define KC_XCBR TD(TD_XCBR)
+#define KC_XBSL TD(TD_XBSL)
+#define KC_XMIN TD(TD_XMIN)
+#define KC_XEQL TD(TD_XEQL)
+#define KC_XGRV TD(TD_XGRV)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-[_QWERTY] = LAYOUT_kc( \
+[_QWERTY] = LAYOUT_4( \
 //┌────┬────┬────┬────┬────┬────┐         ┌────┬────┬────┬────┬────┬────┐
-   GESC,  1 ,   2,   3,   4,   5,             6,   7,   8,   9,   0,BSPC, \
+    TAB,  Q ,   W,   E,   R,   T,             Y,   U,   I,   O,   P,BSPC, \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-    TAB,  Q ,   W,   E,   R,   T,             Y,   U,   I,   O,   P, DEL, \
+   LCTL,CTLA,   S,   D,   F,   G,             H,   J,   K,   L,SMQT,QUOT, \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-   LCTL,  A ,   S,   D,   F,   G,             H,   J,   K,   L,SCLN,QUOT, \
+   OSFT,  Z ,   X,   C,   V,   B,             N,   M,COMM, DOT,SLSH,XBSL, \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-   OSFT,  Z ,   X,   C,   V,   B,             N,   M,COMM, DOT,SLSH,BSLS, \
-//├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-   FN16,CTBS,LGUI,ALAP,OS03, SPC,          EN05,OS04,LEFT,DOWN, UP ,RGHT  \
+   EN05,GESC,LGUI,ALAP,OS03, SPC,          EN05,BS04,LEFT,DOWN, UP ,RGHT  \
 //└────┴────┴────┴────┴────┴────┘         └────┴────┴────┴────┴────┴────┘
 ),
 
-[_COLEMAK] = LAYOUT_kc( \
+[_COLEMAK] = LAYOUT_4( \
 //┌────┬────┬────┬────┬────┬────┐         ┌────┬────┬────┬────┬────┬────┐
-   GESC,   1,   2,   3,   4,   5,             6,   7,   8,   9,   0,BSPC, \
+    TAB,   Q,   W,   F,   P,   G,             J,   L,   U,   Y,SMQT,BSPC, \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-    TAB,   Q,   W,   F,   P,   G,             J,   L,   U,   Y,SCLN, DEL, \
+   LCTL,CTLA,   R,   S,   T,   D,             H,   N,   E,   I,   O,QUOT, \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-   LCTL,   A,   R,   S,   T,   D,             H,   N,   E,   I,   O,QUOT, \
+   OSFT,   Z,   X,   C,   V,   B,             K,   M,COMM, DOT,SLSH,XBSL, \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-   OSFT,   Z,   X,   C,   V,   B,             K,   M,COMM, DOT,SLSH,BSLS, \
-//├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-   FN16,CTBS,LGUI,ALAP,OS03, SPC,          EN05,OS04,LEFT,DOWN, UP ,RGHT \
+   EN05,GESC,LGUI,ALAP,OS03, SPC,          EN05,BS04,LEFT,DOWN, UP ,RGHT  \
 //└────┴────┴────┴────┴────┴────┘         └────┴────┴────┴────┴────┴────┘
 ),
-
-[_DVORAK] = LAYOUT_kc( \
+/*
+[_DVORAK] = LAYOUT_4( \
 //┌────┬────┬────┬────┬────┬────┐         ┌────┬────┬────┬────┬────┬────┐
-   GESC,   1,   2,   3,   4,   5,             6,   7,   8,   9,   0,BSPC, \
+    TAB,QUOT,COMM, DOT,   P,   Y,             F,   G,   C,   R,   L,BSPC, \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-    TAB,QUOT,COMM, DOT,   P,   Y,             F,   G,   C,   R,   L, DEL, \
-//├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-   LCTL,   A,   O,   E,   U,   I,             D,   H,   T,   N,   S,SLSH, \
+   LCTL,CTLA,   O,   E,   U,   I,             D,   H,   T,   N,   S,SLSH, \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
    OSFT,SCLN,   Q,   J,   K,   X,             B,   M,   W,   V,   Z,BSLS, \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-   FN16,CTBS,LGUI,ALAP,OS03, SPC,          EN05,OS04,LEFT,DOWN, UP ,RGHT \
+    APP,GESC,LGUI,ALAP,OS03, SPC,          EN05,BS04,LEFT,DOWN, UP ,RGHT  \
 //└────┴────┴────┴────┴────┴────┘         └────┴────┴────┴────┴────┴────┘
 ),
-
- [_FN03] = LAYOUT_kc( \
+*/
+ [_FN03] = LAYOUT_4( \
 //┌────┬────┬────┬────┬────┬────┐         ┌────┬────┬────┬────┬────┬────┐
-    GRV,EXLM,  AT,HASH, DLR,PERC,          CIRC,AMPR,ASTR,LPRN,RPRN,    , \
+   XGRV,PGUP,HOME, UP , END, INS,          CIRC,AMPR,ASTR,XPRN,RPRN, DEL, \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-   TILD,PGUP,HOME, UP , END, INS,          EXLM,  AT,HASH, DLR,PERC,    , \
+   BSPC,PGDN,LEFT,DOWN,RGHT,    ,          EXLM,  AT,HASH, DLR,PERC,XGRV, \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-    DEL,PGDN,LEFT,DOWN,RGHT,PSCR,           EQL,PLUS,LCBR,RCBR, GRV,    , \
-//├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-   CAPS,VOLU,SLSH,BSLS,SCLN,MPLY,          UNDS,MINS,    ,    ,PIPE,    , \
+   MUTE,VOLU,VOLD,MPRV,MNXT, ENT,          XEQL,XMIN,    ,    ,    ,    , \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤  
-   MUTE,VOLD,MPRV,MNXT,  NO, ENT,            NO,  NO,LBRC,RBRC,    ,     \
+   PSCR, APP,    ,MSEL,    ,MPLY,              ,    ,XBRC,RBRC,XCBR,RCBR \
 //└────┴────┴────┴────┴────┴────┘         └────┴────┴────┴────┴────┴────┘
 ),
 
-[_FN04] = LAYOUT_kc( \
+[_FN04] = LAYOUT_4( \
 //┌────┬────┬────┬────┬────┬────┐         ┌────┬────┬────┬────┬────┬────┐
-    GRV,EXLM,  AT,HASH, DLR,PERC,          CIRC,AMPR,ASTR,LPRN,RPRN,    , \
+       ,TILD,XGRV,    ,    ,    ,              ,  F9, F10, F11, F12,    , \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-   TILD,PGUP,HOME, UP , END, INS,              ,  F9, F10, F11, F12,    , \
+       ,PIPE,RBRC,LBRC,UNDS,MINS,              ,  F5,  F6,  F7,  F8,    , \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-    DEL,PGDN,LEFT,DOWN,RGHT,PSCR,           EQL,  F5,  F6,  F7,  F8,    , \
+       ,BSLS,RCBR,LCBR,PLUS, EQL,          PSCR,  F1,  F2,  F3,  F4,    , \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-   CAPS,VOLU,SLSH,BSLS,SCLN,MPLY,          UNDS,  F1,  F2,  F3,  F4,    , \
-//├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-   MUTE,VOLD,MPRV,MNXT,  NO, ENT,            NO,  NO,LBRC,RBRC,    ,     \
+       ,    ,    ,    ,    ,    ,              ,    ,    ,    ,    ,      \
 //└────┴────┴────┴────┴────┴────┘         └────┴────┴────┴────┴────┴────┘
 ),
 
-[_FN05] = LAYOUT_kc( \
-//┌────┬────┬────┬────┬────┬────┐         ┌────┬────┬────┬────┬────┬────┐
-       ,    ,    ,    ,    ,NLCK,          PSLS,PAST,PMNS,PPLS,    ,SPSK, \
-//├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤	  
-       ,    ,    ,    ,    ,CALC,             7,   8,   9,    ,    ,RPSK, \
+[_FN05] = LAYOUT_4( \
+//┌────┬────┬────┬────┬────┬────┐         ┌────┬────┬────┬────┬────┬────┐  
+    RST,    ,BTN4,WH_L,WH_R,WH_U,             7,   8,   9,PPLS,PMNS,CALC, \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-       ,    ,    ,    ,    ,    ,             4,   5,   6,    ,    ,    , \
+   QWER,    ,BTN3,BTN2,BTN1,WH_D,             4,   5,   6,PAST,PSLS,    , \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-       ,	,    ,    ,    ,    ,             1,   2,   3,PDOT,    ,    , \
+   COLE,    ,BTN5,CAPW,CAPC,CAPG,             1,   2,   3,    ,    ,    , \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-	 NO,    ,    ,    ,  NO,    ,            NO,   0,PCMM,    ,    ,     \
+	 NO,    ,    ,    ,    ,    ,              ,   0,PDOT,    ,    ,      \
 //└────┴────┴────┴────┴────┴────┘         └────┴────┴────┴────┴────┴────┘
 ),
-
-[_FN16] =  LAYOUT_kc( \
-//┌────┬────┬────┬────┬────┬────┐         ┌────┬────┬────┬────┬────┬────┐
-   RTOG,RMOD,    ,RSAI,RHUI,RVAI,              ,    ,    ,    ,    , RST, \
-//├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-   BLON,BLLV,BLBR,RSAD,RHUD,RVAD,              ,    ,    ,    ,    ,    , \
-//├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-    DEL,  F2,  F3,  F4,  F5,    ,              ,COLE,QWER,DVOR,    ,    , \
-//├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-       ,  F9, F10, F11, F12,    ,              ,    ,    ,    ,    ,    , \
-//├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-       ,    ,    ,CAPW,CAPC,CAPG,              ,    ,    ,    ,    ,     \
-//└────┴────┴────┴────┴────┴────┘         └────┴────┴────┴────┴────┴────┘
-)
 
 };
 
@@ -171,8 +203,6 @@ void persistent_default_layer_set(uint16_t default_layer) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-	char spsk[9] = "qwfp312/";
-	char rpsk[10] = "arst@1234";
   switch (keycode) {
     case QWERTY:
      if (record->event.pressed) {
@@ -186,68 +216,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
      }
      return false;
      break;
-    case DVORAK:
+    /*case DVORAK:
      if (record->event.pressed) {
        persistent_default_layer_set(1UL<<_DVORAK);
      }
      return false;
      break;
-    case FN03:
-     if (record->event.pressed) {
-       layer_on(_FN03);
-       update_tri_layer(_FN03, _FN04, _FN05);
-     } else {
-       layer_off(_FN03);
-       update_tri_layer(_FN03, _FN04, _FN05);
-     }
-     return false;
-     break;
-    case FN04:
-     if (record->event.pressed) {
-       layer_on(_FN04);
-       update_tri_layer(_FN03, _FN04, _FN05);
-     } else {
-       layer_off(_FN04);
-       update_tri_layer(_FN03, _FN04, _FN05);
-     }
-     return false;
-     break;
-	case FN05:
-	 if (record->event.pressed) {
-		 layer_on(_FN05);
-		 update_tri_layer(_FN03, _FN04, _FN05);
-	 } else {
-		 layer_off(_FN05);
-		 update_tri_layer(_FN03, _FN04, _FN05);
-	 }
-	 return false;
-	 break;
-	case SPSK:
-	 if (record->event.pressed) {
-		 //SEND_STRING("qwfp312/" SS_TAP(X_ENTER);
-		 send_string(spsk);
-	 } else {
-		 SEND_STRING(SS_TAP(X_ENTER));
-	 }
-	 return false;
-	 break;
-	 case RPSK:
-	 if (record->event.pressed) {
-		 //SEND_STRING("arst@1234" SS_TAP(X_ENTER);
-		 send_string(rpsk);
-	 } else {
-		 SEND_STRING(SS_TAP(X_ENTER));
-	 }
-	 return false;
-	 break;
-    case FN16:
-     if (record->event.pressed) {
-       layer_on(_FN16);
-     } else {
-       layer_off(_FN16);
-     }
-     return false;
-     break;
+	 */
   }
   return true;
 

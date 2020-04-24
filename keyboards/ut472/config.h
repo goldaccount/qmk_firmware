@@ -53,8 +53,33 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGB_DI_PIN C6
 #ifdef RGB_DI_PIN
 //#define RGBLIGHT_ANIMATIONS
-#define RGBLED_NUM 8
+#define RGBLED_NUM 30
 //#define RGBLIGHT_HUE_STEP 8
 //#define RGBLIGHT_SAT_STEP 8
 //#define RGBLIGHT_VAL_STEP 8
 #endif
+
+#undef RGBLIGHT_ANIMATIONS
+#define RGBLIGHT_EFFECT_BREATHING
+#define RGBLIGHT_EFFECT_STATIC_GRADIENT
+#define RGBLIGHT_EFFECT_RAINBOW_MOOD
+#define RGBLIGHT_EFFECT_ALTERNATING
+#define RGBLIGHT_EFFECT_BREATHE_CENTER 2.7
+
+#define GRAVE_ESC_CTRL_OVERRIDE
+#define FORCE_NKRO
+#define ONESHOT_TAP_TOGGLE 3
+#define ONESHOT_TIMEOUT 200
+#define PERMISSIVE_HOLD
+#define TAPPING_TERM 100
+#define TAPPING_TOGGLE 3
+#define IGNORE_MOD_TAP_INTERRUPT
+#define COMBO_COUNT 2
+#define COMBO_TERM 100
+/* Bootmagic Lite key configuration */
+#define BOOTMAGIC_LITE_ROW 0
+#define BOOTMAGIC_LITE_COLUMN 0
+//Mouse config
+#define MOUSEKEY_INTERVAL 16
+#define MOUSEKEY_MAX_SPEED 7
+#define MOUSEKEY_WHEEL_TIME_TO_MAX 100

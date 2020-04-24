@@ -1,13 +1,5 @@
 #include QMK_KEYBOARD_H
 
-/*
-enum layers{
-  _BASE,
-  _NUM_SYM,
-  _NAV
-};
-*/
-
 //Layer definitions
 #define _QWERTY 0
 #define _COLEMAK 1
@@ -24,20 +16,22 @@ enum custom_keycodes {
   FN03,
   FN04,
   FN05,
+  SPSK,
+  RPSK,
   FN16,
 };
 
 #define KC_QWER QWERTY 
 #define KC_COLE COLEMAK 
-//#define KC_DVOR DVORAK
-//#define KC_FN16 FN16
-//#define KC_FN03 FN03
-//#define KC_FN04 FN04
-//#define KC_FN05 FN05
+#define KC_DVOR DVORAK
+#define KC_FN16 FN16
+#define KC_FN03 FN03
+#define KC_FN04 FN04
+#define KC_FN05 FN05
 #define KC_ KC_TRNS
 #define KC_RST RESET
 
-/*
+
 #define KC_RTOG RGB_TOG
 #define KC_RMOD RGB_MOD
 #define KC_RVAI RGB_VAI
@@ -46,15 +40,21 @@ enum custom_keycodes {
 #define KC_RHUD RGB_HUD
 #define KC_RSAI RGB_SAI
 #define KC_RSAD RGB_SAD
-*/
+
 
 #define KC_EN05 LT(_FN05,KC_ENT)
-#define KC_BS03 LT(_FN03,KC_BSPC)
-#define KC_SP04 LT(_FN04,KC_SPC)
+//#define KC_EN03 LT(_FN03,KC_ENT)
+//#define KC_EN04 LT(_FN04,KC_ENT)
 #define KC_BS04 LT(_FN04,KC_BSPC)
 #define KC_SP03 LT(_FN03,KC_SPC)
+//#define KC_OS04 OSL(_FN04)
+#define KC_OS03 OSL(_FN03)
 #define KC_WISL GUI_T(KC_SLSH)
 #define KC_OSFT OSM(MOD_LSFT)
+//#define KC_ALTA LALT_T(KC_TAB)
+//#define KC_ATAB A(KC_TAB)
+#define KC_ALAP LALT_T(KC_MENU)
+//#define KC_CTBS LCTL_T(KC_BSPC)
 #define KC_CAPC G(S(KC_S))
 #define KC_CAPW A(KC_PSCR)
 #define KC_CAPG G(A(KC_PSCR))
@@ -62,8 +62,6 @@ enum custom_keycodes {
 //Alpha mod
 #define KC_CTLA LCTL_T(KC_A)
 #define KC_ALTZ LALT_T(KC_Z)
-#define KC_SFTX LSFT_T(KC_X)
-#define KC_SFTM LSFT_T(KC_M)
 #define KC_ALCO LALT_T(KC_COMM)
 #define KC_CTLD LCTL_T(KC_DOT)
 
@@ -111,6 +109,7 @@ void process_combo_event(uint8_t combo_index, bool pressed) {
 }
 
 //Tap dance
+
 enum {
 	TD_SMQT = 0,
 	TD_XPRN,
@@ -142,77 +141,42 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define KC_XEQL TD(TD_XEQL)
 #define KC_XGRV TD(TD_XGRV)
 
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [_QWERTY] = LAYOUT_33_split_kc(
-       Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P, 
-    CTLA,   S,   D,   F,   G,   H,   J,   K,   L,SMQT,
-    ALTZ,   X,   C,   V,   B,   N,   M,ALCO,CTLD,WISL,
-        OSFT,     SP04,  BS03,     EN05,  LGUI //
-  ),
 
-  [_COLEMAK] = LAYOUT_33_split_kc(
-       Q,   W,   F,   P,   G,   J,   L,   U,   Y,SMQT, 
-    CTLA,   R,   S,   T,   D,   H,   N,   E,   I,   O, 
-    ALTZ,   X,   C,   V,   B,   K,   M,ALCO,CTLD,WISL, 
-        OSFT,     SP04,  BS03,     EN05,  LGUI //
-  ),
+	[_COLEMAK] = LAYOUT_kc( 
+	 TAB,   Q,   W,   F,   P,   G,   J,   L,   U,   Y,SMQT,BSPC, DEL,
+	  LCTL,CTLA,   R,   S,   T,   D,   H,   N,   E,   I,   O,    ENT,
+	   OSFT,   Z,   X,   C,   V,   B,   K,   M,COMM, DOT, SLSH, XBSL,
+	       GESC,  ALAP,      SP03,       BS04,  EN05,LGUI 				
+	),
 
-  [_FN03] = LAYOUT_33_split_kc(
-    PGUP,HOME,  UP, END, INS,CIRC,AMPR,ASTR,XPRN, DEL, 
-    PGDN,LEFT,DOWN,RGHT, ENT,EXLM,  AT,HASH, DLR,PERC, 
-    MUTE,VOLD,VOLU,MPRV,MNXT,XEQL,XMIN,XBRC,XCBR,XBSL, 
-         TAB,     MPLY,      ,      ESC,       //
-  ),
-  
-  [_FN04] = LAYOUT_33_split_kc(
-    TILD,XGRV,    ,    ,    ,    ,  F9, F10, F11, F12, 
-    PIPE,RBRC,LBRC,UNDS,MINS,    ,  F5,  F6,  F7,  F8, 
-    BSLS,RCBR,LCBR,PLUS, EQL,PSCR,  F1,  F2,  F3,  F4, 
-         ESC,         ,   DEL,         ,       //
-  ),
+	[_QWERTY] = LAYOUT_kc( 
+	 TAB,   Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,BSPC, DEL, 	
+	  LCTL,CTLA,   S,   D,   F,   G,   H,   J,   K,   L,SMQT,    ENT, 	
+	   OSFT,   Z,   X,   C,   V,   B,   N,   M,COMM, DOT, SLSH, XBSL, 	
+	       GESC,  ALAP,      SP03,       BS04,  EN05,LGUI 
+	),
 
-  [_FN05] = LAYOUT_33_split_kc(
-     RST,BTN4,WH_L,WH_R,WH_U,    7,   8,   9,PPLS,PMNS, 
-    QWER,BTN3,BTN2,BTN1,WH_D,    4,   5,   6,PAST,PSLS, 
-    COLE,BTN5,CAPW,CAPC,CAPG,    1,   2,   3,PDOT,LGUI, 
-        CAPW,     CAPG,  CAPC,         ,   0   //
-  ),
+	[_FN03] = LAYOUT_kc( 
+	XGRV,PGUP,HOME,  UP, END, INS,CIRC,AMPR,ASTR,XPRN,RPRN, DEL,    , 	
+	 BSPC,PGDN,LEFT,DOWN,RGHT, ENT,EXLM,  AT,HASH, DLR,PERC,    XBSL, 	
+	   MUTE,VOLD,VOLU,MPRV,MNXT,XEQL,XMIN,XBRC,RBRC,XCBR,RCBR,      , 	
+	      CAPS,   MPLY,         ,           ,      ,      				
+	),
 
-  [_QWERTY] = LAYOUT_33_big_space_kc(
-       Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P, 
-    CTLA,   S,   D,   F,   G,   H,   J,   K,   L,SMQT,
-    ALTZ,SFTX,   C,   V,   B,   N,SFTM,ALCO,CTLD,WISL,
-        BS04,            SP03,      EN05       //
-  )
+	[_FN04] = LAYOUT_kc( 
+	RTOG,   1,   2,   3,   4,   5,    ,  F9, F10, F11, F12,     ,    , 	
+	 RMOD,   6,   7,   8,   9,   0,    ,  F5,  F6,  F7,  F8,         , 	
+	   RHUI,RSAI,    ,    ,    ,    ,PSCR,  F1,  F2,  F3,   F4,      ,	 	
+	          ,       ,         ,           ,      ,      				
+	),
 
-  [_COLEMAK] = LAYOUT_33_big_space_kc(
-       Q,   W,   F,   P,   G,   J,   L,   U,   Y,SMQT, 
-    CTLA,   R,   S,   T,   D,   H,   N,   E,   I,   O, 
-    ALTZ,SFTX,   C,   V,   B,   K,SFTM,ALCO,CTLD,WISL, 
-        BS04,            SP03,      EN05       //
-  )
-
-  [_FN03] = LAYOUT_33_big_space_kc(
-    PGUP,HOME,  UP, END, INS,CIRC,AMPR,ASTR,XPRN, DEL, 
-    PGDN,LEFT,DOWN,RGHT, ENT,EXLM,  AT,HASH, DLR,PERC, 
-    MUTE,VOLD,VOLU,MPRV,MNXT,XMIN,XEQL,XBRC,XCBR,XBSL, 
-        MPLY,                ,                //
-  )
-  
-  [_FN04] = LAYOUT_33_big_space_kc(
-    TILD,XGRV,    ,    ,    ,    ,  F9, F10, F11, F12, 
-    PIPE,RBRC,LBRC,UNDS,MINS,    ,  F5,  F6,  F7,  F8, 
-    BSLS,RCBR,LCBR,PLUS, EQL,PSCR,  F1,  F2,  F3,  F4, 
-            ,             DEL,           LGUI //
-  )
-
-  [_FN05] = LAYOUT_33_big_space_kc(
-     RST,BTN4,WH_L,WH_R,WH_U,    7,   8,   9,PPLS,PMNS, 
-    QWER,BTN3,BTN2,BTN1,WH_D,    4,   5,   6,PAST,PSLS, 
-    COLE,BTN5,CAPW,CAPC,CAPG,    1,   2,   3,   0,PDOT, 
-            ,                ,                //
-  )
+	[_FN05] = LAYOUT_kc( 
+	 RST,    ,BTN4,WH_L,WH_R,WH_U,    ,    ,    ,MS_U,    ,     ,    , 	
+	 QWER,    ,BTN3,BTN2,BTN1,WH_D,    ,    ,MS_L,MS_D,MS_R,         , 	
+	   COLE,    ,BTN5,CAPW,CAPC,CAPG,    ,    ,    ,    ,     ,      , 	
+	          ,       ,     CAPG,           ,      ,      				
+	),
 
 };
 
@@ -237,4 +201,5 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
      break;
   }
   return true;
+
 }

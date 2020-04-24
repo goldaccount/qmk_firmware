@@ -66,6 +66,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Bootmagic Lite key configuration */
 #define BOOTMAGIC_LITE_ROW 0
 #define BOOTMAGIC_LITE_COLUMN 0
+//Mouse config
+#define MOUSEKEY_INTERVAL 16
+#define MOUSEKEY_MAX_SPEED 7
+#define MOUSEKEY_WHEEL_TIME_TO_MAX 100
 
 #undef RGBLIGHT_ANIMATIONS
 #define RGBLIGHT_EFFECT_BREATHING

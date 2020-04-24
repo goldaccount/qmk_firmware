@@ -23,3 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "config_common.h"
 
 #endif
+
+//#define QMK_LED B0
+//#define QMK_ESC_OUTPUT F4 // usually COL
+//#define QMK_ESC_INPUT F5 // usually ROW

@@ -101,14 +101,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define NO_ACTION_MACRO
 //#define NO_ACTION_FUNCTION
 
+#define GRAVE_ESC_CTRL_OVERRIDE
 #define FORCE_NKRO
 #define ONESHOT_TAP_TOGGLE 3
-#define ONESHOT_TIMEOUT 5000
+#define ONESHOT_TIMEOUT 200
 #define PERMISSIVE_HOLD
-#define TAPPING_TERM 200
+#define TAPPING_TERM 100
 #define TAPPING_TOGGLE 3
 #define IGNORE_MOD_TAP_INTERRUPT
-#define GRAVE_ESC_CTRL_OVERRIDE
+#define COMBO_COUNT 2
+#define COMBO_TERM 100
 /* Bootmagic Lite key configuration */
 #define BOOTMAGIC_LITE_ROW 0
 #define BOOTMAGIC_LITE_COLUMN 0

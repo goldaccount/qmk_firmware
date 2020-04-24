@@ -17,9 +17,6 @@ enum custom_keycodes {
   FN03,
   FN04,
   FN05,
-  SPSK,
-  RPSK,
-  FN16,
 };
 
 #define KC_QWER QWERTY 
@@ -49,68 +46,118 @@ enum custom_keycodes {
 //#define KC_OS04 OSL(_FN04)
 #define KC_OS03 OSL(_FN03)
 #define KC_OSFT OSM(MOD_LSFT)
-#define KC_ALAP LALT_T(KC_MENU)
+#define KC_ALAP LALT_T(KC_APP)
 //#define KC_CTBS LCTL_T(KC_BSPC)
 #define KC_CAPC G(S(KC_S))
 #define KC_CAPW A(KC_PSCR)
 #define KC_CAPG G(A(KC_PSCR))
 
+//Alpha mod
+#define KC_CTLA LCTL_T(KC_A)
+#define KC_ALTZ LALT_T(KC_Z)
+#define KC_ALCO LALT_T(KC_COMM)
+#define KC_CTLD LCTL_T(KC_DOT)
+
 //other variables
 //int mCalled = 0;
 //bool blockToggle = false;
-//bool lRGB = true;
+//bool lRGB = true
+
+const uint16_t PROGMEM esc_combo[] = {KC_Q, KC_W, COMBO_END};
+const uint16_t PROGMEM tab_combo[] = {KC_W, KC_F, COMBO_END};
+
+//Simple combo
+/*
+enum combos {
+	QW_ESC,
+	WE_TAB,
+};
+
+combo_t key_combos[] = {
+	[QW_ESC] = COMBO(esc_combo, KC_ESC),
+	[WE_TAB] = COMBO(tab_combo, KC_TAB)
+};
+*/
+
+//Complex combo:
+enum combo_events {
+	QW_ESC,
+	WF_TAB,
+};
+
+combo_t key_combos[COMBO_COUNT] = {
+	[QW_ESC] = COMBO_ACTION(esc_combo),
+	[WF_TAB] = COMBO_ACTION(tab_combo),
+};
+
+enum {
+	TD_SMQT = 0,
+	TD_XPRN,
+	TD_XBRC,
+	TD_XCBR,
+	TD_XBSL,
+	TD_XMIN,
+	TD_XGRV,
+	TD_XEQL
+};
+
+qk_tap_dance_action_t tap_dance_actions[] = {
+	[TD_SMQT] = ACTION_TAP_DANCE_DOUBLE(KC_SCLN,KC_QUOT),
+	[TD_XPRN] = ACTION_TAP_DANCE_DOUBLE(KC_LPRN,KC_RPRN),
+	[TD_XBRC] = ACTION_TAP_DANCE_DOUBLE(KC_LBRC,KC_RBRC),
+	[TD_XCBR] = ACTION_TAP_DANCE_DOUBLE(KC_LCBR,KC_RCBR),
+	[TD_XBSL] = ACTION_TAP_DANCE_DOUBLE(KC_BSLS,KC_PIPE),
+	[TD_XMIN] = ACTION_TAP_DANCE_DOUBLE(KC_MINS,KC_UNDS),
+	[TD_XGRV] = ACTION_TAP_DANCE_DOUBLE(KC_GRV,KC_TILD),
+	[TD_XEQL] = ACTION_TAP_DANCE_DOUBLE(KC_EQL,KC_PLUS)
+};
+
+#define KC_SMQT TD(TD_SMQT)
+#define KC_XPRN TD(TD_XPRN)
+#define KC_XBRC TD(TD_XBRC)
+#define KC_XCBR TD(TD_XCBR)
+#define KC_XBSL TD(TD_XBSL)
+#define KC_XMIN TD(TD_XMIN)
+#define KC_XEQL TD(TD_XEQL)
+#define KC_XGRV TD(TD_XGRV)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_QWERTY] = LAYOUT_tanuki( \
 	 TAB,   Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P, BSPC, 	\
-	  LCTL,   A,   S,   D,   F,   G,   H,   J,   K,   L,SCLN,QUOT, 	\
+	  LCTL,CTLA,   S,   D,   F,   G,   H,   J,   K,   L,SMQT,QUOT, 	\
 	   OSFT,   Z,   X,   C,   V,   B,   N,   M,COMM, DOT, SLSH, 	\
-	      LGUI,ALAP,OS03,     SPC,    BS04,EN05, FN16 				\
+	      LGUI,ALAP,OS03,     SPC,    BS04,EN05, PSCR 				\
 	),
 
 [_COLEMAK] = LAYOUT_tanuki( \
-	 TAB,   Q,   W,   F,   P,   G,   J,   L,   U,   Y,SCLN, BSPC, 	\
-	  LCTL,   A,   R,   S,   T,   D,   H,   N,   E,   I,   O,QUOT, 	\
+	 TAB,   Q,   W,   F,   P,   G,   J,   L,   U,   Y,SMQT, BSPC, 	\
+	  LCTL,CTLA,   R,   S,   T,   D,   H,   N,   E,   I,   O,QUOT, 	\
 	   OSFT,   Z,   X,   C,   V,   B,   K,   M,COMM, DOT, SLSH, 	\
-	      LGUI,ALAP,OS03,     SPC,    BS04,EN05, FN16 				\
+	      LGUI,ALAP,OS03,     SPC,    BS04,EN05, PSCR 				\
 	),
 
 [_FN03] = LAYOUT_tanuki( \
-	 DEL,PGUP,HOME,  UP, END, INS,CIRC,AMPR,ASTR,LPRN,RPRN,  GRV, 	\
-	 ESC,PGDN,LEFT,DOWN,RGHT,    ,EXLM,  AT,HASH, DLR,PERC,BSLS, 	\
-	   CAPS,MUTE,VOLD,VOLU,    , EQL,MINS,LBRC,RBRC,LCBR,RCBR, 		\
-	      MPRV,MNXT,    ,    MPLY,        ,    ,      				\
+	XGRV,PGUP,HOME,  UP, END, INS,CIRC,AMPR,ASTR,XPRN,RPRN,  DEL, 	\
+	 BSPC,PGDN,LEFT,DOWN,RGHT, ENT,EXLM,  AT,HASH, DLR,PERC,XBSL, 	\
+	   MUTE,VOLD,VOLU,MPRV,MNXT,XEQL,XMIN,XBRC,RBRC,XCBR,RCBR, 		\
+	      CAPS,MSEL,    ,    MPLY,    ESC,    ,      				\
 	),
 
 [_FN04] = LAYOUT_tanuki( \
-	    ,   1,   2,   3,   4,   5,CIRC,AMPR,ASTR,LPRN,RPRN,  GRV, 	\
-	     ,   6,   7,   8,   9,   0,EXLM,  AT,HASH, DLR,PERC,TILD, 	\
-	       ,    ,    ,    ,    ,PLUS,UNDS,LBRC,RBRC,LCBR,RCBR,	 	\
-	          ,CAPW,CAPC,    CAPG,        ,    ,      				\
+	RTOG,   1,   2,   3,   4,   5,    ,  F9, F10, F11, F12,     , 	\
+	 RMOD,   6,   7,   8,   9,   0,    ,  F5,  F6,  F7,  F8,    , 	\
+	   RHUI,RSAI,    ,    ,    ,    ,PSCR,  F1,  F2,  F3,   F4,	 	\
+	      RVAI,RVAD,    ,    PSCR,        ,    ,      				\
 	),
 
 [_FN05] = LAYOUT_tanuki( \
-	    ,    ,WH_U,MS_U,WH_D,    ,    ,  F9, F10, F11, F12,     , 	\
-	     ,    ,MS_L,MS_D,MS_R,    ,    ,  F5,  F6,  F7,  F8,    , 	\
-	       ,    ,    ,WH_L,WH_R,    ,    ,  F1,  F2,  F3,   F4, 	\
-	      BTN5, BTN4,BTN2,    BTN1,    BTN3,    ,      				\
+	 RST,    ,BTN4,WH_L,WH_R,WH_U,    ,    ,    ,MS_U,    ,     , 	\
+	 QWER,    ,BTN3,BTN2,BTN1,WH_D,    ,    ,MS_L,MS_D,MS_R,    , 	\
+	   COLE,    ,BTN5,CAPW,CAPC,CAPG,    ,    ,    ,    ,     , 	\
+	          ,     ,    ,   CAPG,        ,    ,      				\
 	),
 	
-[_FN16] = LAYOUT_tanuki( \
-	RTOG,RMOD,RHUI,RSAI,RVAI,    ,    ,    ,    ,QWER,COLE,   RST, 	\
-	     ,    ,    ,    ,RVAD,    ,    ,    ,    ,    ,    ,    , 	\
-	       ,    ,    ,    ,    ,    ,    ,    ,    ,    ,     , 	\
-	          ,    ,    ,        ,        ,    ,      				\
-	)
-/*	
-[_DVORAK] = LAYOUT_tanuki( \ 
-	    ,    ,    ,    ,    ,    ,    ,    ,    ,    ,    ,     , 	\
-	     ,    ,    ,    ,    ,    ,    ,    ,    ,    ,    ,    , 	\
-	       ,    ,    ,    ,    ,    ,    ,    ,    ,    ,     , 	\
-	          ,    ,    ,        ,        ,    ,      				\
-	),
-*/
 };
 
 void persistent_default_layer_set(uint16_t default_layer) {
@@ -119,8 +166,6 @@ void persistent_default_layer_set(uint16_t default_layer) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-	//char spsk[9] = "qwfp312/";
-	//char rpsk[10] = "arst@1234";
   switch (keycode) {
     case QWERTY:
      if (record->event.pressed) {
@@ -146,33 +191,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
      return false;
      break;
 	*/
-	/*case SPSK:
-	 if (record->event.pressed) {
-		 //SEND_STRING("qwfp312/" SS_TAP(X_ENTER);
-		 send_string(spsk);
-	 } else {
-		 SEND_STRING(SS_TAP(X_ENTER));
-	 }
-	 return false;
-	 break;
-	 case RPSK:
-	 if (record->event.pressed) {
-		 //SEND_STRING("arst@1234" SS_TAP(X_ENTER);
-		 send_string(rpsk);
-	 } else {
-		 SEND_STRING(SS_TAP(X_ENTER));
-	 }
-	 return false;
-	 break;
-	*/
-    case FN16:
-     if (record->event.pressed) {
-       layer_on(_FN16);
-     } else {
-       layer_off(_FN16);
-     }
-     return false;
-     break;
   }
   return true;
 

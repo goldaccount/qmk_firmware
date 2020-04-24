@@ -31,6 +31,8 @@ enum custom_keycodes {
   FN03,
   FN04,
   FN05,
+  SPSK,
+  RPSK,
   FN16,
 };
 
@@ -64,7 +66,7 @@ enum custom_keycodes {
 #define KC_OSFT OSM(MOD_LSFT)
 #define KC_ALTA LALT_T(KC_TAB)
 #define KC_ATAB A(KC_TAB)
-//#define KC_ALAP LALT_T(KC_MENU)
+//#define KC_ALAP LALT_T(KC_APP)
 //#define KC_CTBS LCTL_T(KC_BSPC)
 #define KC_CAPC G(S(KC_S))
 #define KC_CAPW A(KC_PSCR)
@@ -105,35 +107,56 @@ void process_combo_event(uint8_t combo_index, bool pressed) {
 }
 
 enum {
-	TD_SMQT = 0
+	TD_SMQT = 0,
+	TD_XPRN,
+	TD_XBRC,
+	TD_XCBR,
+	TD_XBSL,
+	TD_XMIN,
+	TD_XGRV,
+	TD_XEQL
 };
 
 qk_tap_dance_action_t tap_dance_actions[] = {
-	[TD_SMQT] = ACTION_TAP_DANCE_DOUBLE(KC_SCLN,KC_QUOT)
+	[TD_SMQT] = ACTION_TAP_DANCE_DOUBLE(KC_SCLN,KC_QUOT),
+	[TD_XPRN] = ACTION_TAP_DANCE_DOUBLE(KC_LPRN,KC_RPRN),
+	[TD_XBRC] = ACTION_TAP_DANCE_DOUBLE(KC_LBRC,KC_RBRC),
+	[TD_XCBR] = ACTION_TAP_DANCE_DOUBLE(KC_LCBR,KC_RCBR),
+	[TD_XBSL] = ACTION_TAP_DANCE_DOUBLE(KC_BSLS,KC_PIPE),
+	[TD_XMIN] = ACTION_TAP_DANCE_DOUBLE(KC_MINS,KC_UNDS),
+	[TD_XGRV] = ACTION_TAP_DANCE_DOUBLE(KC_GRV,KC_TILD),
+	[TD_XEQL] = ACTION_TAP_DANCE_DOUBLE(KC_EQL,KC_PLUS)
 };
 
 #define KC_SMQT TD(TD_SMQT)
+#define KC_XPRN TD(TD_XPRN)
+#define KC_XBRC TD(TD_XBRC)
+#define KC_XCBR TD(TD_XCBR)
+#define KC_XBSL TD(TD_XBSL)
+#define KC_XMIN TD(TD_XMIN)
+#define KC_XEQL TD(TD_XEQL)
+#define KC_XGRV TD(TD_XGRV)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	
   [_QWERTY] = LAYOUT_revi39(
     ALTA,   Q,   W,   E,   R,   T,        Y,   U,   I,   O,   P,BSPC, \
-    LCTL,   A,   S,   D,   F,   G,        H,   J,   K,   L,SMQT,QUOT, \
-    OSFT,   Z,   X,   C,   V,   B,        N,   M,COMM, DOT,WISL,BSLS, \
+    LCTL,CTLA,   S,   D,   F,   G,        H,   J,   K,   L,SMQT,QUOT, \
+    OSFT,   Z,   X,   C,   V,   B,        N,   M,COMM, DOT,WISL,XBSL, \
 							 OS03, SP04,EN05 \
   ),
 
   [_COLEMAK] = LAYOUT_revi39(
     ALTA,   Q,   W,   F,   P,   G,        J,   L,   U,   Y,SMQT,BSPC, \
-    LCTL,   A,   R,   S,   T,   D,        H,   N,   E,   I,   O, DEL, \
-    OSFT,   Z,   X,   C,   V,   B,        K,   M,COMM, DOT,WISL,BSLS, \
+    LCTL,CTLA,   R,   S,   T,   D,        H,   N,   E,   I,   O, DEL, \
+    OSFT,   Z,   X,   C,   V,   B,        K,   M,COMM, DOT,WISL,XBSL, \
 							 OS03, SP04,EN05 \
   ),
   
   [_FN03] = LAYOUT_revi39(
-    ATAB,PGUP,HOME,  UP, END, INS,      CIRC,AMPR,ASTR,LPRN,RPRN,TILD, \
-     DEL,PGDN,LEFT,DOWN,RGHT, ENT,      EXLM,  AT,HASH, DLR,PERC, GRV, \
-    CAPS,MUTE,VOLD,VOLU,MPRV,MNXT,      MINS, EQL,LBRC,RBRC,    ,PIPE, \
+    ATAB,PGUP,HOME,  UP, END, INS,      CIRC,AMPR,ASTR,XPRN,RPRN, DEL, \
+     DEL,PGDN,LEFT,DOWN,RGHT, ENT,      EXLM,  AT,HASH, DLR,PERC,XGRV, \
+    CAPS,MUTE,VOLD,VOLU,MPRV,MNXT,      XEQL,XMIN,XBRC,XCBR,    ,PIPE, \
                                  , MPLY,     \
   ),
   
@@ -145,9 +168,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),  
   
   [_FN05] = LAYOUT_revi39(
-    RTOG,RMOD,RHUI,RSAI,RVAI,    ,          ,  F9, F10, F11, F12, RST, \
-    COLE,    ,RBRC,LBRC,UNDS,MINS,          ,  F5,  F6,  F7,  F8,COLE, \
-    QWER,    ,RCBR,LCBR,PLUS, EQL,          ,  F1,  F2,  F3,  F4,QWER, \
+     RST,RTOG,RMOD,RHUI,RSAI,RVAI,          ,  F9, F10, F11, F12,    , \
+    QWER,    ,RBRC,LBRC,UNDS,MINS,          ,  F5,  F6,  F7,  F8,    , \
+    COLE,    ,RCBR,LCBR,PLUS, EQL,      PSCR,  F1,  F2,  F3,  F4,    , \
                                  ,     ,     \
   ),
 
@@ -172,8 +195,6 @@ void persistent_default_layer_set(uint16_t default_layer) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-	//char spsk[9] = "qwfp312/";
-	//char rpsk[10] = "arst@1234";
   switch (keycode) {
     case QWERTY:
      if (record->event.pressed) {

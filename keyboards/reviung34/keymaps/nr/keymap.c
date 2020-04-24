@@ -68,7 +68,7 @@ enum custom_keycodes {
 #define KC_OSFT OSM(MOD_LSFT)
 //#define KC_ALTA LALT_T(KC_TAB)
 //#define KC_ATAB A(KC_TAB)
-//#define KC_ALAP LALT_T(KC_MENU)
+//#define KC_ALAP LALT_T(KC_APP)
 //#define KC_CTBS LCTL_T(KC_BSPC)
 #define KC_CAPC G(S(KC_S))
 #define KC_CAPW A(KC_PSCR)
@@ -124,15 +124,37 @@ void process_combo_event(uint8_t combo_index, bool pressed) {
 }
 
 //Tap dance
+
 enum {
-	TD_SMQT = 0
+	TD_SMQT = 0,
+	TD_XPRN,
+	TD_XBRC,
+	TD_XCBR,
+	TD_XBSL,
+	TD_XMIN,
+	TD_XGRV,
+	TD_XEQL
 };
 
 qk_tap_dance_action_t tap_dance_actions[] = {
-	[TD_SMQT] = ACTION_TAP_DANCE_DOUBLE(KC_SCLN,KC_QUOT)
+	[TD_SMQT] = ACTION_TAP_DANCE_DOUBLE(KC_SCLN,KC_QUOT),
+	[TD_XPRN] = ACTION_TAP_DANCE_DOUBLE(KC_LPRN,KC_RPRN),
+	[TD_XBRC] = ACTION_TAP_DANCE_DOUBLE(KC_LBRC,KC_RBRC),
+	[TD_XCBR] = ACTION_TAP_DANCE_DOUBLE(KC_LCBR,KC_RCBR),
+	[TD_XBSL] = ACTION_TAP_DANCE_DOUBLE(KC_BSLS,KC_PIPE),
+	[TD_XMIN] = ACTION_TAP_DANCE_DOUBLE(KC_MINS,KC_UNDS),
+	[TD_XGRV] = ACTION_TAP_DANCE_DOUBLE(KC_GRV,KC_TILD),
+	[TD_XEQL] = ACTION_TAP_DANCE_DOUBLE(KC_EQL,KC_PLUS)
 };
 
 #define KC_SMQT TD(TD_SMQT)
+#define KC_XPRN TD(TD_XPRN)
+#define KC_XBRC TD(TD_XBRC)
+#define KC_XCBR TD(TD_XCBR)
+#define KC_XBSL TD(TD_XBSL)
+#define KC_XMIN TD(TD_XMIN)
+#define KC_XEQL TD(TD_XEQL)
+#define KC_XGRV TD(TD_XGRV)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	
@@ -151,16 +173,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_FN03] = LAYOUT_rev34(
-    PGUP,HOME,  UP, END, INS,      CIRC,AMPR,ASTR,LPRN,RPRN, 
+    PGUP,HOME,  UP, END, INS,      CIRC,AMPR,ASTR,XPRN,RPRN, 
     PGDN,LEFT,DOWN,RGHT, ENT,      EXLM,  AT,HASH, DLR,PERC, 
-    MUTE,VOLD,VOLU,MPRV,MNXT,      MINS, EQL,LBRC,RBRC,BSLS, 
+    MUTE,VOLD,VOLU,MPRV,MNXT,      XEQL,XMIN,XBRC,XCBR,XBSL, 
                TAB,    ,MPLY,      ESC//
   ),
 
   [_FN04] = LAYOUT_rev34(
-    TILD, GRV,    ,    ,    ,          ,  F9, F10, F11, F12, 
+    TILD,XGRV,    ,    ,    ,          ,  F9, F10, F11, F12, 
     PIPE,RBRC,LBRC,UNDS,MINS,          ,  F5,  F6,  F7,  F8, 
-    BSLS,RCBR,LCBR,PLUS, EQL,          ,  F1,  F2,  F3,  F4, 
+    BSLS,RCBR,LCBR,PLUS, EQL,      PSCR,  F1,  F2,  F3,  F4, 
                   , DEL,    ,          //     
   ),
 
@@ -205,8 +227,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
      }
      return false;
      break;
-	*/
-	/*
     case FN03:
      if (record->event.pressed) {
        layer_on(_FN03);
@@ -217,8 +237,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
      }
      return false;
      break;
-	*/
-	/*
     case FN04:
      if (record->event.pressed) {
        layer_on(_FN04);
@@ -239,8 +257,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	 }
 	 return false;
 	 break;
-	 */
-    /*
 	case FN16:
      if (record->event.pressed) {
        layer_on(_FN16);
