@@ -53,38 +53,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #define SOFT_SERIAL_PIN D0 // or D1, D2, D3, E6
 
-#define GRAVE_ESC_CTRL_OVERRIDE
-#define FORCE_NKRO
-#define ONESHOT_TAP_TOGGLE 3
-#define ONESHOT_TIMEOUT 200
-#define PERMISSIVE_HOLD
-#define TAPPING_TERM 100
-#define TAPPING_TOGGLE 3
-#define IGNORE_MOD_TAP_INTERRUPT
-#define COMBO_COUNT 2
-#define COMBO_TERM 100
-/* Bootmagic Lite key configuration */
-#define BOOTMAGIC_LITE_ROW 0
-#define BOOTMAGIC_LITE_COLUMN 0
-//Mouse config
-#define MOUSEKEY_INTERVAL 16
-#define MOUSEKEY_MAX_SPEED 7
-#define MOUSEKEY_WHEEL_TIME_TO_MAX 100
-
-#undef RGBLIGHT_ANIMATIONS
-#define RGBLIGHT_EFFECT_BREATHING
-#define RGBLIGHT_EFFECT_RAINBOW_MOOD
-#define RGBLIGHT_EFFECT_STATIC_GRADIENT
-
 #define RGB_DI_PIN D3
 #ifdef RGB_DI_PIN
   #define RGBLED_NUM 11
-  #define RGBLIGHT_HUE_STEP 16
-  #define RGBLIGHT_SAT_STEP 16
-  #define RGBLIGHT_VAL_STEP 16
-  #define RGBLIGHT_LIMIT_VAL 255 /* The maximum brightness level */
-  #define RGBLIGHT_SLEEP  /* If defined, the RGB lighting will be switched off when the host goes to sleep */
-// /*== all animations enable ==*/
 //  #define RGBLIGHT_ANIMATIONS
 // /*== or choose animations ==*/
 //   #define RGBLIGHT_EFFECT_BREATHING

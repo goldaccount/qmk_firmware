@@ -14,7 +14,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include QMK_KEYBOARD_H
-
+#include "nr.h"
+/*
 //Layer definitions
 #define _QWERTY 0
 #define _COLEMAK 1
@@ -46,7 +47,7 @@ enum custom_keycodes {
 #define KC_ KC_TRNS
 #define KC_RST RESET
 
-/*
+
 #define KC_RTOG RGB_TOG
 #define KC_RMOD RGB_MOD
 #define KC_RVAI RGB_VAI
@@ -55,7 +56,7 @@ enum custom_keycodes {
 #define KC_RHUD RGB_HUD
 #define KC_RSAI RGB_SAI
 #define KC_RSAD RGB_SAD
-*/
+
 
 #define KC_EN05 LT(_FN05,KC_ENT)
 //#define KC_EN03 LT(_FN03,KC_ENT)
@@ -85,7 +86,7 @@ const uint16_t PROGMEM esc_combo[] = {KC_Q, KC_W, COMBO_END};
 const uint16_t PROGMEM tab_combo[] = {KC_W, KC_F, COMBO_END};
 
 //Simple combo
-/*
+
 enum combos {
 	QW_ESC,
 	WE_TAB,
@@ -95,7 +96,7 @@ combo_t key_combos[] = {
 	[QW_ESC] = COMBO(esc_combo, KC_ESC),
 	[WE_TAB] = COMBO(tab_combo, KC_TAB)
 };
-*/
+
 
 //Complex combo:
 enum combo_events {
@@ -155,6 +156,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define KC_XMIN TD(TD_XMIN)
 #define KC_XEQL TD(TD_XEQL)
 #define KC_XGRV TD(TD_XGRV)
+*/
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	
@@ -201,7 +203,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   )
 */
 };
-
+/*
 void persistent_default_layer_set(uint16_t default_layer) {
   eeconfig_update_default_layer(default_layer);
   default_layer_set(default_layer);
@@ -221,7 +223,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
      }
      return false;
      break;
-    /*case DVORAK:
+    case DVORAK:
      if (record->event.pressed) {
        persistent_default_layer_set(1UL<<_DVORAK);
      }
@@ -265,8 +267,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
      }
      return false;
      break;
-	*/
+	
   }
   return true;
 
 }
+*/

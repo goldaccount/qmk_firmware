@@ -58,22 +58,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Backlight LEDs */
 #define BACKLIGHT_PIN B6
 #define BACKLIGHT_LEVELS 5
-#undef RGBLIGHT_ANIMATIONS
 
-#define GRAVE_ESC_CTRL_OVERRIDE
-#define FORCE_NKRO
-#define ONESHOT_TAP_TOGGLE 3
-#define ONESHOT_TIMEOUT 200
-#define PERMISSIVE_HOLD
-#define TAPPING_TERM 100
-#define TAPPING_TOGGLE 3
-#define IGNORE_MOD_TAP_INTERRUPT
-#define COMBO_COUNT 2
-#define COMBO_TERM 100
-/* Bootmagic Lite key configuration */
-#define BOOTMAGIC_LITE_ROW 0
-#define BOOTMAGIC_LITE_COLUMN 0
-//Mouse config
-#define MOUSEKEY_INTERVAL 16
-#define MOUSEKEY_MAX_SPEED 7
-#define MOUSEKEY_WHEEL_TIME_TO_MAX 100

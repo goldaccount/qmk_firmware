@@ -47,29 +47,11 @@ D2, D4, F6, F4
 /* Locking resynchronize hack */
 #define LOCKING_RESYNC_ENABLE
 
-#define GRAVE_ESC_CTRL_OVERRIDE
-#define FORCE_NKRO
-#define ONESHOT_TAP_TOGGLE 3
-#define ONESHOT_TIMEOUT 1000
-#define PERMISSIVE_HOLD
-#define TAPPING_TERM 150
-#define TAPPING_TOGGLE 3
-#define IGNORE_MOD_TAP_INTERRUPT
-#define COMBO_COUNT 2
-#define COMBO_TERM 150
-/* Bootmagic Lite key configuration */
-#define BOOTMAGIC_LITE_ROW 0
-#define BOOTMAGIC_LITE_COLUMN 0
 
-#undef RGBLED_NUM
-#undef RGBLIGHT_ANIMATIONS
 #define RGB_DI_PIN D3
-#define RGBLED_NUM 4
+#define RGBLED_NUM 8
 #ifdef RGB_DI_PIN
-//#define RGBLIGHT_ANIMATIONS
-#define RGBLIGHT_HUE_STEP 8
-#define RGBLIGHT_SAT_STEP 8
-#define RGBLIGHT_VAL_STEP 8
+
 #endif
 
 #endif

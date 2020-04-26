@@ -14,7 +14,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include QMK_KEYBOARD_H
+#include "nr.h"
 
+/*
 extern keymap_config_t keymap_config;
 //Layer definitions
 #define _QWERTY 0
@@ -75,7 +77,7 @@ const uint16_t PROGMEM esc_combo[] = {KC_Q, KC_W, COMBO_END};
 const uint16_t PROGMEM tab_combo[] = {KC_W, KC_F, COMBO_END};
 
 //Simple combo
-/*
+
 enum combos {
 	QW_ESC,
 	WE_TAB,
@@ -85,7 +87,7 @@ combo_t key_combos[] = {
 	[QW_ESC] = COMBO(esc_combo, KC_ESC),
 	[WE_TAB] = COMBO(tab_combo, KC_TAB)
 };
-*/
+
 
 //Complex combo:
 enum combo_events {
@@ -128,7 +130,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define KC_XMIN TD(TD_XMIN)
 #define KC_XEQL TD(TD_XEQL)
 #define KC_XGRV TD(TD_XGRV)
-
+*/
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* Base Layer
@@ -212,7 +214,7 @@ LAYOUT(
 ),
 
 };
-
+/*
 void persistent_default_layer_set(uint16_t default_layer) {
   eeconfig_update_default_layer(default_layer);
   default_layer_set(default_layer);
@@ -236,3 +238,4 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   return true;
 
 }
+*/

@@ -50,34 +50,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define RGB_DI_PIN D1
 #define RGBLED_NUM 12
-#ifdef RGB_DI_PIN
-#undef RGBLIGHT_ANIMATIONS
-#define RGBLIGHT_EFFECT_BREATHING
-#define RGBLIGHT_EFFECT_STATIC_GRADIENT
-#define RGBLIGHT_EFFECT_RAINBOW_MOOD
-//#define RGBLIGHT_EFFECT_ALTERNATING
-#define RGBLIGHT_EFFECT_BREATHE_CENTER 2.5
-#define RGBLIGHT_SLEEP
-#endif
-
-
-#define FORCE_NKRO
-#define ONESHOT_TAP_TOGGLE 3
-#define ONESHOT_TIMEOUT 100
-#define PERMISSIVE_HOLD
-#define TAPPING_TERM 100
-#define TAPPING_TOGGLE 3
-#define COMBO_COUNT 2
-#define COMBO_TERM 100
-#define IGNORE_MOD_TAP_INTERRUPT
-#define GRAVE_ESC_CTRL_OVERRIDE
-#define BOOTMAGIC_LITE_ROW 0	/* Bootmagic key = Left Esc */
-#define BOOTMAGIC_LITE_COLUMN 0
-
-//Mouse config
-#define MOUSEKEY_INTERVAL 16
-#define MOUSEKEY_MAX_SPEED 7
-#define MOUSEKEY_WHEEL_TIME_TO_MAX 100
 
 /* disable action features */
 //#define NO_DEBUG

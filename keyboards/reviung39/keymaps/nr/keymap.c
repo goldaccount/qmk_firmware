@@ -13,8 +13,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include QMK_KEYBOARD_H
 
+#include QMK_KEYBOARD_H
+#include "nr.h"
+/*
 //Layer definitions
 #define _QWERTY 0
 #define _COLEMAK 1
@@ -56,7 +58,7 @@ enum custom_keycodes {
 #define KC_RSAD RGB_SAD
 
 #define KC_EN05 LT(_FN05,KC_ENT)
-//#define KC_EN03 LT(_FN03,KC_ENT)
+#define KC_BS03 LT(_FN03,KC_BSPC)
 //#define KC_EN04 LT(_FN04,KC_ENT)
 #define KC_SP04 LT(_FN04,KC_SPC)
 #define KC_OS04 OSL(_FN04)
@@ -136,21 +138,21 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define KC_XMIN TD(TD_XMIN)
 #define KC_XEQL TD(TD_XEQL)
 #define KC_XGRV TD(TD_XGRV)
-
+*/
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	
   [_QWERTY] = LAYOUT_revi39(
     ALTA,   Q,   W,   E,   R,   T,        Y,   U,   I,   O,   P,BSPC, \
     LCTL,CTLA,   S,   D,   F,   G,        H,   J,   K,   L,SMQT,QUOT, \
     OSFT,   Z,   X,   C,   V,   B,        N,   M,COMM, DOT,WISL,XBSL, \
-							 OS03, SP04,EN05 \
+							 BS03, SP04,EN05 \
   ),
 
   [_COLEMAK] = LAYOUT_revi39(
     ALTA,   Q,   W,   F,   P,   G,        J,   L,   U,   Y,SMQT,BSPC, \
     LCTL,CTLA,   R,   S,   T,   D,        H,   N,   E,   I,   O, DEL, \
     OSFT,   Z,   X,   C,   V,   B,        K,   M,COMM, DOT,WISL,XBSL, \
-							 OS03, SP04,EN05 \
+							 BS03, SP04,EN05 \
   ),
   
   [_FN03] = LAYOUT_revi39(
@@ -188,7 +190,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
   return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 }
 */
-
+/*
 void persistent_default_layer_set(uint16_t default_layer) {
   eeconfig_update_default_layer(default_layer);
   default_layer_set(default_layer);
@@ -208,7 +210,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
      }
      return false;
      break;
-    /*case DVORAK:
+    case DVORAK:
      if (record->event.pressed) {
        persistent_default_layer_set(1UL<<_DVORAK);
      }
@@ -252,8 +254,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
      }
      return false;
      break;
-	*/
   }
   return true;
 
 }
+*/
