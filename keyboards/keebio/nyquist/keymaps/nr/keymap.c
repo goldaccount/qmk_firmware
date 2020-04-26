@@ -162,13 +162,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 */
  [_FN03] = LAYOUT_4( \
 //┌────┬────┬────┬────┬────┬────┐         ┌────┬────┬────┬────┬────┬────┐
-   XGRV,PGUP,HOME, UP , END, INS,          CIRC,AMPR,ASTR,XPRN,RPRN, DEL, \
+   XGRV,XPGU,HOME, UP , END, INS,          CIRC,AMPR,ASTR,XPRN,RPRN, DEL, \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-   BSPC,PGDN,LEFT,DOWN,RGHT,    ,          EXLM,  AT,HASH, DLR,PERC,XGRV, \
+   BSPC,XPGD,LEFT,DOWN,RGHT, ENT,          EXLM,  AT,HASH, DLR,PERC,XGRV, \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-   MUTE,VOLU,VOLD,MPRV,MNXT, ENT,          XEQL,XMIN,    ,    ,    ,    , \
+   XVOL,XCP2,XCPY,XCTB,XSTB,XPLY,          XEQL,XMIN,    ,    ,    ,    , \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤  
-   PSCR, APP,    ,MSEL,    ,MPLY,              ,    ,XBRC,RBRC,XCBR,RCBR \
+   PSCR, APP,    ,    ,    ,MPLY,              ,    ,XBRC,RBRC,XCBR,RCBR \
 //└────┴────┴────┴────┴────┴────┘         └────┴────┴────┴────┴────┴────┘
 ),
 
@@ -180,7 +180,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
    RHUI,BSLS,RCBR,LCBR,PLUS, EQL,          PSCR,  F1,  F2,  F3,  F4,    , \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-   RSAI,    ,    ,    ,    ,    ,              ,    ,    ,    ,    ,      \
+   RSAI,BLON,BLLV,BLBR,    ,    ,              ,    ,    ,    ,    ,      \
 //└────┴────┴────┴────┴────┴────┘         └────┴────┴────┴────┴────┴────┘
 ),
 
@@ -192,7 +192,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
    COLE,    ,BTN5,CAPW,CAPC,CAPG,             1,   2,   3,    ,    ,    , \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-	 NO,    ,    ,    ,    ,    ,              ,   0,PDOT,    ,    ,      \
+	 NO,    ,    ,XCP2,XIMG,CAPG,              ,   0,PDOT,    ,    ,      \
 //└────┴────┴────┴────┴────┴────┘         └────┴────┴────┴────┴────┴────┘
 ),
 

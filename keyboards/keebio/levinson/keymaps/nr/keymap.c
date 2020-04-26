@@ -162,25 +162,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 */
  [_FN03] = LAYOUT_4( \
 //┌────┬────┬────┬────┬────┬────┐         ┌────┬────┬────┬────┬────┬────┐
-   XGRV,PGUP,HOME, UP , END, INS,          CIRC,AMPR,ASTR,XPRN,RPRN, DEL, \
+   XGRV,XPGU,HOME, UP , END, INS,          CIRC,AMPR,ASTR,XPRN,RPRN, DEL, \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-   BSPC,PGDN,LEFT,DOWN,RGHT,    ,          EXLM,  AT,HASH, DLR,PERC,XGRV, \
+   BSPC,XPGD,LEFT,DOWN,RGHT, ENT,          EXLM,  AT,HASH, DLR,PERC,XGRV, \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-   MUTE,VOLU,VOLD,MPRV,MNXT, ENT,          XEQL,XMIN,    ,    ,    ,    , \
+   XVOL,XCP2,XCPY,XCTB,XSTB,XPLY,          XEQL,XMIN,    ,    ,    ,    , \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤  
-   PSCR, APP,    ,MSEL,    ,MPLY,              ,    ,XBRC,RBRC,XCBR,RCBR \
+   CAPS, APP,    ,    ,    ,MPLY,              ,    ,XBRC,RBRC,XCBR,RCBR \
 //└────┴────┴────┴────┴────┴────┘         └────┴────┴────┴────┴────┴────┘
 ),
 
 [_FN04] = LAYOUT_4( \
 //┌────┬────┬────┬────┬────┬────┐         ┌────┬────┬────┬────┬────┬────┐
-       ,TILD,XGRV,    ,    ,    ,              ,  F9, F10, F11, F12,    , \
+   RTOG,TILD,XGRV,    ,    ,    ,              ,  F9, F10, F11, F12,    , \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-       ,PIPE,RBRC,LBRC,UNDS,MINS,              ,  F5,  F6,  F7,  F8,    , \
+   RMOD,PIPE,RBRC,LBRC,UNDS,MINS,              ,  F5,  F6,  F7,  F8,    , \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-       ,BSLS,RCBR,LCBR,PLUS, EQL,          PSCR,  F1,  F2,  F3,  F4,    , \
+   RHUI,BSLS,RCBR,LCBR,PLUS, EQL,          PSCR,  F1,  F2,  F3,  F4,    , \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-       ,    ,    ,    ,    ,    ,              ,    ,    ,    ,    ,      \
+   RSAI,BLON,BLLV,BLBR,    ,    ,              ,    ,    ,    ,    ,      \
 //└────┴────┴────┴────┴────┴────┘         └────┴────┴────┴────┴────┴────┘
 ),
 
@@ -192,40 +192,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
    COLE,    ,BTN5,CAPW,CAPC,CAPG,             1,   2,   3,    ,    ,    , \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-	 NO,    ,    ,    ,    ,    ,              ,   0,PDOT,    ,    ,      \
+	 NO,    ,    ,XCP2,XIMG,CAPG,              ,   0,PDOT,    ,    ,      \
 //└────┴────┴────┴────┴────┴────┘         └────┴────┴────┴────┴────┴────┘
 ),
 
 };
-/*
-void persistent_default_layer_set(uint16_t default_layer) {
-  eeconfig_update_default_layer(default_layer);
-  default_layer_set(default_layer);
-}
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-    case QWERTY:
-     if (record->event.pressed) {
-       persistent_default_layer_set(1UL<<_QWERTY);
-     }
-     return false;
-     break;
-    case COLEMAK:
-     if (record->event.pressed) {
-       persistent_default_layer_set(1UL<<_COLEMAK);
-     }
-     return false;
-     break;
-    case DVORAK:
-     if (record->event.pressed) {
-       persistent_default_layer_set(1UL<<_DVORAK);
-     }
-     return false;
-     break;
-	 
-  }
-  return true;
-
-}
-*/

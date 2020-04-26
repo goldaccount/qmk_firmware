@@ -160,10 +160,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_FN03] = LAYOUT_33_split_kc(
-    PGUP,HOME,  UP, END, INS,CIRC,AMPR,ASTR,XPRN, DEL, 
-    PGDN,LEFT,DOWN,RGHT, ENT,EXLM,  AT,HASH, DLR,PERC, 
-    MUTE,VOLD,VOLU,MPRV,MNXT,XEQL,XMIN,XBRC,XCBR,XBSL, 
-         TAB,     MPLY,      ,      ESC,       //
+    XPGU,HOME,  UP, END, INS,CIRC,AMPR,ASTR,XPRN, DEL, 
+    XPGD,LEFT,DOWN,RGHT, ENT,EXLM,  AT,HASH, DLR,PERC, 
+    XVOL,XCPY,XCTB,XSTB,XPLY,XEQL,XMIN,XBRC,XCBR,XBSL, 
+         CAPS,     MPLY,      ,      ESC,       //
   ),
   
   [_FN04] = LAYOUT_33_split_kc(
@@ -176,10 +176,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_FN05] = LAYOUT_33_split_kc(
      RST,BTN4,WH_L,WH_R,WH_U,    7,   8,   9,PPLS,PMNS, 
     QWER,BTN3,BTN2,BTN1,WH_D,    4,   5,   6,PAST,PSLS, 
-    COLE,BTN5,CAPW,CAPC,CAPG,    1,   2,   3,PDOT,LGUI, 
+    COLE,BTN5,CAPW,CAPC,CAPG,    1,   2,   3,PDOT,    , 
         CAPW,     CAPG,  CAPC,         ,   0   //
   ),
-
+/*
   [_QWERTY] = LAYOUT_33_big_space_kc(
        Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P, 
     CTLA,   S,   D,   F,   G,   H,   J,   K,   L,SMQT,
@@ -197,8 +197,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_FN03] = LAYOUT_33_big_space_kc(
     PGUP,HOME,  UP, END, INS,CIRC,AMPR,ASTR,XPRN, DEL, 
     PGDN,LEFT,DOWN,RGHT, ENT,EXLM,  AT,HASH, DLR,PERC, 
-    MUTE,VOLD,VOLU,MPRV,MNXT,XMIN,XEQL,XBRC,XCBR,XBSL, 
-        MPLY,                ,                //
+    XVOL,XCPY,XCTB,XSTB,XPLY,XMIN,XEQL,XBRC,XCBR,XBSL, 
+        CAPS,                ,                //
   ),
   
   [_FN04] = LAYOUT_33_big_space_kc(
@@ -214,7 +214,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     COLE,BTN5,CAPW,CAPC,CAPG,    1,   2,   3,   0,PDOT, 
             ,                ,                //
   ),
-
+*/
 };
 /*
 void persistent_default_layer_set(uint16_t default_layer) {

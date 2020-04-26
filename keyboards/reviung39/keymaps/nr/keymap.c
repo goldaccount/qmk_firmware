@@ -158,8 +158,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_FN03] = LAYOUT_revi39(
     ATAB,PGUP,HOME,  UP, END, INS,      CIRC,AMPR,ASTR,XPRN,RPRN, DEL, \
      DEL,PGDN,LEFT,DOWN,RGHT, ENT,      EXLM,  AT,HASH, DLR,PERC,XGRV, \
-    CAPS,MUTE,VOLD,VOLU,MPRV,MNXT,      XEQL,XMIN,XBRC,XCBR,    ,PIPE, \
-                                 , MPLY,     \
+    XVOL,CAPS,XCPY,XCTB,XSTB,XPLY,      XEQL,XMIN,XBRC,XCBR,    ,PIPE, \
+                                 , XPLY,     \
   ),
   
   [_FN04] = LAYOUT_revi39(
@@ -173,16 +173,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      RST,RTOG,RMOD,RHUI,RSAI,RVAI,          ,  F9, F10, F11, F12,    , \
     QWER,    ,RBRC,LBRC,UNDS,MINS,          ,  F5,  F6,  F7,  F8,    , \
     COLE,    ,RCBR,LCBR,PLUS, EQL,      PSCR,  F1,  F2,  F3,  F4,    , \
-                                 ,     ,     \
+                                 ,XIMG,     \
   ),
-
+/*
   [_FN16] = LAYOUT_revi39(
          ,   ,    ,    ,    ,    ,          ,    ,    ,    ,    ,    , \
          ,   ,    ,    ,    ,    ,          ,    ,    ,    ,    ,    , \
          ,   ,    ,    ,    ,    ,          ,    ,    ,    ,    ,    , \
                                  ,    ,     \
   )
-
+*/
 };
 
 /*

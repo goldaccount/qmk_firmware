@@ -94,6 +94,152 @@ void process_combo_event(uint8_t combo_index, bool pressed) {
 
 //Tap Dance
 
+void dance_switchtab (qk_tap_dance_state_t *state, void *user_data) {
+	switch (state->count) {
+		case 1:
+		tap_code16(C(KC_PGDN));
+		break;
+		case 2:
+		tap_code16(C(KC_PGUP));
+		break;
+	}
+	reset_tap_dance(state);
+}
+
+void dance_closetab (qk_tap_dance_state_t *state, void *user_data) {
+	switch (state->count) {
+		case 1:
+		tap_code16(C(KC_W));
+		break;
+		case 2:
+		tap_code16(C(S(KC_T)));
+		break;
+		case 3:
+		tap_code16(C(KC_T));
+		break;
+	}
+	reset_tap_dance(state);
+}
+
+void dance_copypaste (qk_tap_dance_state_t *state, void *user_data) {
+	switch (state->count) {
+		case 1:
+		tap_code16(C(KC_C));
+		break;
+		case 2:
+		tap_code16(C(KC_V));
+		break;
+		case 3:
+		tap_code16(C(KC_X));
+		break;
+	}
+	reset_tap_dance(state);
+}
+
+//Line 7 Function, Select End and Copy, Select All End and Copy error
+
+void dance_copyend (qk_tap_dance_state_t *state, void *user_data) {
+	switch (state->count) {
+		case 1:
+		tap_code16(S(KC_END));
+		tap_code16(C(KC_C));
+		break;
+		case 2:
+		tap_code16(C(S(KC_END)));
+		tap_code16(C(KC_C));
+		break;
+		case 3:
+		tap_code16(C(KC_A));
+		tap_code16(C(KC_C));
+		break;
+	}
+	reset_tap_dance(state);
+}
+
+//Line 15. Macro MouseBTN2, V, Enter
+void dance_saveimage (qk_tap_dance_state_t *state, void *user_data) {
+	switch (state->count) {
+		case 2:
+		tap_code16(KC_BTN2);
+		SEND_STRING(SS_DELAY(500) "v");
+		//tap_code16(KC_V);
+		SEND_STRING(SS_DELAY(500));
+		tap_code16(KC_ENT);
+		break;
+		case 3:
+		//tap_code16();
+		break;
+	}
+	reset_tap_dance(state);
+}
+
+//5
+void d_pgdn (qk_tap_dance_state_t *state, void *user_data) {	
+	switch (state->count) {
+		case 1:
+		tap_code16(KC_PGDN);
+		break;
+		case 2:
+		tap_code16(KC_END);
+		break;
+		case 3:
+		tap_code16(C(KC_END));
+		break;	
+	}
+	reset_tap_dance(state);
+}
+
+//6
+void d_pgup (qk_tap_dance_state_t *state, void *user_data) {
+	switch (state->count) {
+		case 1:
+		tap_code16(KC_PGUP);
+		break;
+		case 2:
+		tap_code16(KC_HOME);
+		break;
+		case 3:
+		tap_code16(C(KC_HOME));
+		break;	
+	}
+	reset_tap_dance(state);
+}
+
+//7
+void d_vol (qk_tap_dance_state_t *state, void *user_data) {
+	switch (state->count) {
+		case 1:
+		tap_code16(KC_VOLD);
+		break;
+		case 2:
+		tap_code16(KC_VOLU);
+		break;
+		case 3:
+		tap_code16(KC_MUTE);
+		break;	
+	}
+	reset_tap_dance(state);
+}
+
+//8
+void d_play (qk_tap_dance_state_t *state, void *user_data) {
+	switch (state->count) {
+		case 1:
+		tap_code16(KC_MPLY);
+		break;
+		case 2:
+		tap_code16(KC_MNXT);
+		break;
+		case 3:
+		tap_code16(KC_MPRV);
+		break;
+		case 4:
+		tap_code16(KC_MSEL);
+		break;
+	}
+	reset_tap_dance(state);
+}
+
 qk_tap_dance_action_t tap_dance_actions[] = {
 	[TD_SMQT] = ACTION_TAP_DANCE_DOUBLE(KC_SCLN,KC_QUOT),
 	[TD_XPRN] = ACTION_TAP_DANCE_DOUBLE(KC_LPRN,KC_RPRN),
@@ -102,7 +248,16 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 	[TD_XBSL] = ACTION_TAP_DANCE_DOUBLE(KC_BSLS,KC_PIPE),
 	[TD_XMIN] = ACTION_TAP_DANCE_DOUBLE(KC_MINS,KC_UNDS),
 	[TD_XGRV] = ACTION_TAP_DANCE_DOUBLE(KC_GRV,KC_TILD),
-	[TD_XEQL] = ACTION_TAP_DANCE_DOUBLE(KC_EQL,KC_PLUS)
+	[TD_XEQL] = ACTION_TAP_DANCE_DOUBLE(KC_EQL,KC_PLUS),
+	[TD_SWITCHTAB] = ACTION_TAP_DANCE_FN(dance_switchtab),
+	[TD_CLOSETAB] = ACTION_TAP_DANCE_FN(dance_closetab),
+	[TD_COPYPASTE] = ACTION_TAP_DANCE_FN(dance_copypaste),
+	[TD_COPYEND] = ACTION_TAP_DANCE_FN(dance_copyend),
+	[TD_SAVEIMAGE] = ACTION_TAP_DANCE_FN (dance_saveimage),
+	[TD_XPGD] = ACTION_TAP_DANCE_FN(d_pgdn),
+	[TD_XPGU] = ACTION_TAP_DANCE_FN(d_pgup),
+	[TD_XVOL] = ACTION_TAP_DANCE_FN(d_vol),
+	[TD_XPLY] = ACTION_TAP_DANCE_FN(d_play)
 };
 
 void persistent_default_layer_set(uint16_t default_layer) {
@@ -127,51 +282,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
      }
      return false;
      break;
-    /*case DVORAK:
-     if (record->event.pressed) {
-       persistent_default_layer_set(1UL<<_DVORAK);
-     }
-     return false;
-     break;
-    case FN03:
-     if (record->event.pressed) {
-       layer_on(_FN03);
-       update_tri_layer(_FN03, _FN04, _FN05);
-     } else {
-       layer_off(_FN03);
-       update_tri_layer(_FN03, _FN04, _FN05);
-     }
-     return false;
-     break;
-    case FN04:
-     if (record->event.pressed) {
-       layer_on(_FN04);
-       update_tri_layer(_FN03, _FN04, _FN05);
-     } else {
-       layer_off(_FN04);
-       update_tri_layer(_FN03, _FN04, _FN05);
-     }
-     return false;
-     break;
-	case FN05:
-	 if (record->event.pressed) {
-		 layer_on(_FN05);
-		 update_tri_layer(_FN03, _FN04, _FN05);
-	 } else {
-		 layer_off(_FN05);
-		 update_tri_layer(_FN03, _FN04, _FN05);
-	 }
-	 return false;
-	 break;
-	case FN16:
-     if (record->event.pressed) {
-       layer_on(_FN16);
-     } else {
-       layer_off(_FN16);
-     }
-     return false;
-     break;
-	*/
   }
   return true;
 

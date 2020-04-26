@@ -35,3 +35,16 @@
     { KB1, KB2, KB3 }, \
     { KC1, KC2, KC3 } \
 }
+
+#define LAYOUT_kc( \
+    KA1, KA2, KA3, \
+    KB1, KB2, KB3, \
+    KC1, KC2, KC3  \
+) \
+    LAYOUT_ortho_3x3( \
+        KC_##KA1, KC_##KA2, KC_##KA3, \
+        KC_##KB1, KC_##KB2, KC_##KB3, \
+        KC_##KC1, KC_##KC2, KC_##KC3  \
+    )
+	
+#define LAYOUT_ortho_3x3 LAYOUT 

@@ -175,9 +175,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_FN03] = LAYOUT_rev34(
-    PGUP,HOME,  UP, END, INS,      CIRC,AMPR,ASTR,XPRN,RPRN, 
-    PGDN,LEFT,DOWN,RGHT, ENT,      EXLM,  AT,HASH, DLR,PERC, 
-    MUTE,VOLD,VOLU,MPRV,MNXT,      XEQL,XMIN,XBRC,XCBR,XBSL, 
+    XPGU,HOME,  UP, END, INS,      CIRC,AMPR,ASTR,XPRN,RPRN, 
+    XPGD,LEFT,DOWN,RGHT, ENT,      EXLM,  AT,HASH, DLR,PERC, 
+    XVOL,XCPY,XCTB,XSTB,XPLY,      XEQL,XMIN,XBRC,XCBR,XBSL, 
                TAB,    ,MPLY,      ESC//
   ),
 
@@ -192,7 +192,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      RST,BTN4,WH_L,WH_R,WH_U,         7,   8,   9,PPLS,PMNS, 
     QWER,BTN3,BTN2,BTN1,WH_D,         4,   5,   6,PAST,PSLS, 
     COLE,BTN5,CAPW,CAPC,CAPG,         1,   2,   3,   0,PDOT, 
-                  ,    ,    ,          //
+              XCP2,XIMG,    ,          //
   ),
 /*  
   [_FN16] = LAYOUT_rev34(

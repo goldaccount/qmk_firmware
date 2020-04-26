@@ -16,19 +16,13 @@
 enum custom_keycodes {
   COLEMAK = SAFE_RANGE,
   QWERTY,
-  DVORAK,
   FN03,
   FN04,
   FN05,
-  SPSK,
-  RPSK,
-  FN16,
 };
 
 #define KC_QWER QWERTY 
 #define KC_COLE COLEMAK 
-#define KC_DVOR DVORAK
-#define KC_FN16 FN16
 #define KC_FN03 FN03
 #define KC_FN04 FN04
 #define KC_FN05 FN05
@@ -44,6 +38,10 @@ enum custom_keycodes {
 #define KC_RHUD RGB_HUD
 #define KC_RSAI RGB_SAI
 #define KC_RSAD RGB_SAD
+#define KC_BLON	BL_TOGG
+#define KC_BLLV	BL_STEP
+#define KC_BLBR	BL_BRTG
+
 
 
 //Layers tap
@@ -96,7 +94,16 @@ enum {
 	TD_XBSL,
 	TD_XMIN,
 	TD_XGRV,
-	TD_XEQL
+	TD_XEQL,
+	TD_SWITCHTAB,
+	TD_CLOSETAB,
+	TD_COPYPASTE,
+	TD_COPYEND,
+	TD_SAVEIMAGE,
+	TD_XPGD,
+	TD_XPGU,
+	TD_XVOL,
+	TD_XPLY
 };
 
 #define KC_SMQT TD(TD_SMQT)
@@ -107,3 +114,12 @@ enum {
 #define KC_XMIN TD(TD_XMIN)
 #define KC_XEQL TD(TD_XEQL)
 #define KC_XGRV TD(TD_XGRV)
+#define KC_XSTB TD(TD_SWITCHTAB)
+#define KC_XCTB TD(TD_CLOSETAB)
+#define KC_XCPY TD(TD_COPYPASTE)
+#define KC_XCP2 TD(TD_COPYEND)
+#define KC_XIMG TD(TD_SAVEIMAGE)
+#define KC_XPGD TD(TD_XPGD)
+#define KC_XPGU TD(TD_XPGU)
+#define KC_XVOL TD(TD_XVOL)
+#define KC_XPLY TD(TD_XPLY)

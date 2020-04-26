@@ -128,22 +128,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_QWERTY] = LAYOUT_tanuki( \
 	 TAB,   Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P, BSPC, 	\
 	  LCTL,CTLA,   S,   D,   F,   G,   H,   J,   K,   L,SMQT,QUOT, 	\
-	   OSFT,   Z,   X,   C,   V,   B,   N,   M,COMM, DOT, SLSH, 	\
+	   OSFT,   Z,   X,   C,   V,   B,   N,   M,COMM, DOT, WISL, 	\
 	      LGUI,ALAP,OS03,     SPC,    BS04,EN05, PSCR 				\
 	),
 
 [_COLEMAK] = LAYOUT_tanuki( \
 	 TAB,   Q,   W,   F,   P,   G,   J,   L,   U,   Y,SMQT, BSPC, 	\
 	  LCTL,CTLA,   R,   S,   T,   D,   H,   N,   E,   I,   O,QUOT, 	\
-	   OSFT,   Z,   X,   C,   V,   B,   K,   M,COMM, DOT, SLSH, 	\
+	   OSFT,   Z,   X,   C,   V,   B,   K,   M,COMM, DOT, WISL, 	\
 	      LGUI,ALAP,OS03,     SPC,    BS04,EN05, PSCR 				\
 	),
 
 [_FN03] = LAYOUT_tanuki( \
 	XGRV,PGUP,HOME,  UP, END, INS,CIRC,AMPR,ASTR,XPRN,RPRN,  DEL, 	\
 	 BSPC,PGDN,LEFT,DOWN,RGHT, ENT,EXLM,  AT,HASH, DLR,PERC,XBSL, 	\
-	   MUTE,VOLD,VOLU,MPRV,MNXT,XEQL,XMIN,XBRC,RBRC,XCBR,RCBR, 		\
-	      CAPS,MSEL,    ,    MPLY,    ESC,    ,      				\
+	   XVOL,XCP2,XCPY,XCTB,XSTB,XPLY,XEQL,XMIN,XBRC,RBRC, XCBR, 	\
+	      CAPS,    ,    ,    XPLY,    ESC,    ,      				\
 	),
 
 [_FN04] = LAYOUT_tanuki( \
@@ -157,7 +157,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	 RST,    ,BTN4,WH_L,WH_R,WH_U,    ,    ,    ,MS_U,    ,     , 	\
 	 QWER,    ,BTN3,BTN2,BTN1,WH_D,    ,    ,MS_L,MS_D,MS_R,    , 	\
 	   COLE,    ,BTN5,CAPW,CAPC,CAPG,    ,    ,    ,    ,     , 	\
-	          ,     ,    ,   CAPG,        ,    ,      				\
+	          ,     ,XIMG,   CAPG,        ,    ,      				\
 	),
 	
 };

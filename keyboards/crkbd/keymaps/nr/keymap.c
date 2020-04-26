@@ -18,24 +18,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_FN03] = LAYOUT_kc(
-    ATAB,PGUP,HOME,  UP, END, INS,		CIRC,AMPR,ASTR,XPRN,RPRN, DEL, \
-     DEL,PGDN,LEFT,DOWN,RGHT, ENT,		EXLM,  AT,HASH, DLR,PERC,XGRV, \
-    CAPS,MUTE,VOLD,VOLU,MPRV,MNXT,		XEQL,XMIN,XBRC,XCBR,    ,PIPE, \
-                   MSEL,    ,MPLY,          , DEL,    \
+    ATAB,XPGU,HOME,  UP, END, INS,		CIRC,AMPR,ASTR,XPRN,RPRN, DEL, \
+    BSPC,XPGD,LEFT,DOWN,RGHT, ENT,		EXLM,  AT,HASH, DLR,PERC,XGRV, \
+    XVOL,CAPS,XCPY,XCTB,XSTB,XPLY,		XEQL,XMIN,XBRC,XCBR,    ,PIPE, \
+                    APP,    ,MPLY,          , DEL,    \
   ),
   
   [_FN04] = LAYOUT_kc(
      ESC,    ,BTN4,WH_L,WH_R,WH_U,         7,   8,   9,PPLS,PMNS,CALC, \
         ,    ,BTN3,BTN2,BTN1,WH_D,         4,   5,   6,PAST,PSLS,    , \
         ,    ,BTN5,CAPW,CAPC,CAPG,         1,   2,   3,PDOT,    ,    , \
-                       ,    , TAB,          ,   0,    \
+                       ,    ,    ,          ,   0,    \
   ),  
   
   [_FN05] = LAYOUT_kc(
      RST,RTOG,RMOD,RHUI,RSAI,RVAI,          ,  F9, F10, F11, F12,    , \
     QWER,    ,RBRC,LBRC,UNDS,MINS,          ,  F5,  F6,  F7,  F8,    , \
     COLE,    ,RCBR,LCBR,PLUS, EQL,      PSCR,  F1,  F2,  F3,  F4,    , \
-                       ,    ,    ,          ,    ,    \
+                       ,    ,XIMG,          ,    ,    \
   ),
 /*
   [_FN16] = LAYOUT_corne(

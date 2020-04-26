@@ -159,10 +159,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	),
 
 	[_FN03] = LAYOUT_kc( 
-	XGRV,PGUP,HOME,  UP, END, INS,CIRC,AMPR,ASTR,XPRN,RPRN, DEL,    , 	
-	 BSPC,PGDN,LEFT,DOWN,RGHT, ENT,EXLM,  AT,HASH, DLR,PERC,    XBSL, 	
-	   MUTE,VOLD,VOLU,MPRV,MNXT,XEQL,XMIN,XBRC,RBRC,XCBR,RCBR,      , 	
-	      CAPS,   MPLY,         ,           ,      ,      				
+	XGRV,XPGU,HOME,  UP, END, INS,CIRC,AMPR,ASTR,XPRN,RPRN, DEL,    , 	
+	 BSPC,XPGD,LEFT,DOWN,RGHT, ENT,EXLM,  AT,HASH, DLR,PERC,    XBSL, 	
+	   XVOL,XCP2,XCPY,XCTB,XSTB,XPLY,XEQL,XMIN,XBRC,RBRC,XCBR,  RCBR, 	
+	      CAPS,       ,         ,           ,      ,      				
 	),
 
 	[_FN04] = LAYOUT_kc( 
@@ -176,32 +176,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	 RST,    ,BTN4,WH_L,WH_R,WH_U,    ,    ,    ,MS_U,    ,     ,    , 	
 	 QWER,    ,BTN3,BTN2,BTN1,WH_D,    ,    ,MS_L,MS_D,MS_R,         , 	
 	   COLE,    ,BTN5,CAPW,CAPC,CAPG,    ,    ,    ,    ,     ,      , 	
-	          ,       ,     CAPG,           ,      ,      				
+	          ,   XIMG,     CAPG,           ,      ,      				
 	),
 
 };
-/*
-void persistent_default_layer_set(uint16_t default_layer) {
-  eeconfig_update_default_layer(default_layer);
-  default_layer_set(default_layer);
-}
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-    case QWERTY:
-     if (record->event.pressed) {
-       persistent_default_layer_set(1UL<<_QWERTY);
-     }
-     return false;
-     break;
-    case COLEMAK:
-     if (record->event.pressed) {
-       persistent_default_layer_set(1UL<<_COLEMAK);
-     }
-     return false;
-     break;
-  }
-  return true;
-
-}
-*/
