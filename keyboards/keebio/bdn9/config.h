@@ -50,6 +50,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define BACKLIGHT_LEVELS 5
 
 #define RGB_DI_PIN D3
+/*
 #ifdef RGB_DI_PIN
   #define RGBLED_NUM 8
   #define RGBLIGHT_HUE_STEP 8
@@ -63,7 +64,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  #define RGBLIGHT_EFFECT_ALTERNATING
  #define RGBLIGHT_EFFECT_BREATHE_CENTER 2.7
 #endif
-
+*/
 /* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
 #define DEBOUNCE 5
 

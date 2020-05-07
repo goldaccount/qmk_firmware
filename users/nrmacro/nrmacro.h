@@ -70,9 +70,9 @@ enum {
 	TD_XPGD,
 	TD_XPGU,
 	TD_XVOL,
-	TD_XPLY
+	TD_XPLY,
+	TD_VVOL
 };
-
 
 #define KC_XSTB TD(TD_SWITCHTAB)
 #define KC_XCTB TD(TD_CLOSETAB)
@@ -89,5 +89,5 @@ enum {
 #define KC_XDWN TD(TD_XDWN)
 #define KC_XPGD TD(TD_XPGD)
 #define KC_XPGU TD(TD_XPGU)
-#define KC_XVOL TD(TD_XVOL)
+#define KC_XVOL TD(TD_VVOL)
 #define KC_XPLY TD(TD_XPLY)

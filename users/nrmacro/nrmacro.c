@@ -1,9 +1,34 @@
 #include "nrmacro.h"
-#include QMK_KEYBOARD_H
+#include "advanceddance.c"
 #include "quantum.h"
 #include "action.h"
 
 extern keymap_config_t keymap_config;
+
+void d_vol_finished (qk_tap_dance_state_t *state, void *user_data) {
+	xtap_state.state = count_dance(state); //Set state of tap to the count function
+	switch (xtap_state.state) {
+		case SINGLE_TAP:	register_code(KC_VOLD); break;
+		case SINGLE_HOLD:	register_code(KC_VOLD); break;
+		case DOUBLE_TAP:	register_code(KC_VOLU); break;
+		case DOUBLE_HOLD:	register_code(KC_VOLU); break;
+		case TRIPLE_TAP:	register_code(KC_MUTE); break;
+		default: break;
+	}
+}
+
+void d_vol_reset (qk_tap_dance_state_t *state, void *user_data) {
+	xtap_state.state = count_dance(state); //Set state of tap to the count function
+	switch (xtap_state.state) {
+		case SINGLE_TAP:	unregister_code(KC_VOLD); break;
+		case SINGLE_HOLD:	unregister_code(KC_VOLD); break;
+		case DOUBLE_TAP:	unregister_code(KC_VOLU); break;
+		case DOUBLE_HOLD:	unregister_code(KC_VOLU); break;
+		case TRIPLE_TAP:	unregister_code(KC_MUTE); break;
+		default: break;
+	}
+	xtap_state.state = 0;
+}
 
 void dance_switchtab (qk_tap_dance_state_t *state, void *user_data) {
 	switch (state->count) {
@@ -74,7 +99,7 @@ void dance_saveimage (qk_tap_dance_state_t *state, void *user_data) {
 		tap_code16(KC_BTN2);
 		SEND_STRING(SS_DELAY(500) "v");
 		//tap_code16(KC_V);
-		SEND_STRING(SS_DELAY(500));
+		SEND_STRING(SS_DELAY(1250));
 		tap_code16(KC_ENT);
 		break;
 		case 3:
@@ -303,4 +328,5 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 	[TD_XPGU] = ACTION_TAP_DANCE_FN(d_pgup),
 	[TD_XVOL] = ACTION_TAP_DANCE_FN(d_vol),
 	[TD_XPLY] = ACTION_TAP_DANCE_FN(d_play),
+	[TD_VVOL] = ACTION_TAP_DANCE_FN_ADVANCED(NULL,d_vol_finished,d_vol_reset),
 };

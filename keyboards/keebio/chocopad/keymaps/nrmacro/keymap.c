@@ -5,9 +5,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_COLEMAK] = LAYOUT_kc(
 //┌────┬────┬────┬────┐
-   XPLY,XCTB,XUPP,XSTB, \
+   XPLY,XCTB,  UP,XSTB, \
 //├────┼────┼────┼────┤
-   LCTL,XLFT,XDWN,XRGH, \
+   LCTL,LEFT,DOWN,RGHT, \
 //├────┼────┼────┼────┤
    LSFT,XCP2,XCAP,XCPY, \
 //├────┼────┼────┼────┤
@@ -29,23 +29,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   
   [_FN03] = LAYOUT_kc(
 //┌────┬────┬────┬────┐
-   XCAS,BTN2,MS_U,BTN1, \
+       ,BTN2,MS_U,BTN1, \
 //├────┼────┼────┼────┤
-   XHED,MS_L,MS_D,MS_R, \
+       ,MS_L,MS_D,MS_R, \
 //├────┼────┼────┼────┤
-   XROW,WH_U,WH_L,WH_R, \
+       ,WH_L,WH_U,WH_R, \
 //├────┼────┼────┼────┤
-       ,WH_D,XIMG,      \
+   XIMG,    ,WH_D,      \
 //└────┴────┴────┴────┘
   ),
   
   [_FN05] = LAYOUT_kc(
 //┌────┬────┬────┬────┐
-       ,    ,    ,    , \
+    RST,BLON,BLLV,BLBR, \
 //├────┼────┼────┼────┤
        ,    ,    ,    , \
 //├────┼────┼────┼────┤
-       ,    ,    ,    , \
+       ,XROW,XHED,XCAS, \
 //├────┼────┼────┼────┤
        ,    ,    ,       \
 //└────┴────┴────┴────┘

@@ -156,8 +156,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   
   [_FN03] = LAYOUT_revi39(
-    ATAB,PGUP,HOME,  UP, END, INS,      CIRC,AMPR,ASTR,XPRN,RPRN, DEL, \
-     DEL,PGDN,LEFT,DOWN,RGHT, ENT,      EXLM,  AT,HASH, DLR,PERC,XGRV, \
+    ATAB,XPGU,HOME,  UP, END, INS,      CIRC,AMPR,ASTR,XPRN,RPRN, DEL, \
+     DEL,XPGD,LEFT,DOWN,RGHT, ENT,      EXLM,  AT,HASH, DLR,PERC,XGRV, \
     XVOL,CAPS,XCPY,XCTB,XSTB,XPLY,      XEQL,XMIN,XBRC,XCBR,    ,PIPE, \
                                  , XPLY,     \
   ),

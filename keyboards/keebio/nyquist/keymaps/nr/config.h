@@ -16,7 +16,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #pragma once
-
+//#undef PRODUCT
 #define PRODUCT         Levinson v3 by NR
 #define DESCRIPTION		Split 40% keyboard
 

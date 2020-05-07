@@ -34,9 +34,6 @@ D2, D4, F6, F4
 
 /* number of backlight levels */
 #define BACKLIGHT_PIN B5
-#define BACKLIGHT_LEVELS 6
-#define BACKLIGHT_BREATHING
-#define BREATHING_PERIOD 3
 
 /* Set 0 if debouncing isn't needed */
 #define DEBOUNCE 5
@@ -49,9 +46,5 @@ D2, D4, F6, F4
 
 
 #define RGB_DI_PIN D3
-#define RGBLED_NUM 8
-#ifdef RGB_DI_PIN
-
-#endif
 
 #endif

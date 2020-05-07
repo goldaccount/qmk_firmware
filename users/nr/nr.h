@@ -11,7 +11,7 @@
 #define _FN03 3
 #define _FN04 4
 #define _FN05 5
-#define _FN16 16
+//#define _FN16 16
 
 enum custom_keycodes {
   COLEMAK = SAFE_RANGE,
@@ -103,7 +103,8 @@ enum {
 	TD_XPGD,
 	TD_XPGU,
 	TD_XVOL,
-	TD_XPLY
+	TD_XPLY,
+	TD_VVOL,
 };
 
 #define KC_SMQT TD(TD_SMQT)
@@ -121,5 +122,5 @@ enum {
 #define KC_XIMG TD(TD_SAVEIMAGE)
 #define KC_XPGD TD(TD_XPGD)
 #define KC_XPGU TD(TD_XPGU)
-#define KC_XVOL TD(TD_XVOL)
+#define KC_XVOL TD(TD_VVOL)
 #define KC_XPLY TD(TD_XPLY)

@@ -1,2 +1,2 @@
-#define TAP_CODE_DELAY 100
-#define RGB_LED_NUMBER 8
+#define TAP_CODE_DELAY 25
+#define RGBLED_NUM 8
