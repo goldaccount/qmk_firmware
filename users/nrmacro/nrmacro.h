@@ -37,6 +37,7 @@ enum custom_keycodes {
 
 
 //RGB
+#ifdef RGBLIGHT_ENABLE
 #define KC_RTOG RGB_TOG
 #define KC_RMOD RGB_MOD
 #define KC_RVAI RGB_VAI
@@ -45,14 +46,17 @@ enum custom_keycodes {
 #define KC_RHUD RGB_HUD
 #define KC_RSAI RGB_SAI
 #define KC_RSAD RGB_SAD
+#endif 
 
+//Backlight
+#ifdef BACKLIGHT_ENABLE
 #define KC_BLON	BL_TOGG
 #define KC_BLLV	BL_STEP
 #define KC_BLBR	BL_BRTG
-
+#endif
 
 //Tap dance
-
+#ifdef TAP_DANCE_ENABLE
 enum {
 	TD_SWITCHTAB = 0,
 	TD_CLOSETAB,
@@ -91,3 +95,4 @@ enum {
 #define KC_XPGU TD(TD_XPGU)
 #define KC_XVOL TD(TD_VVOL)
 #define KC_XPLY TD(TD_XPLY)
+#endif

@@ -1,7 +1,7 @@
 // Copyright 2019 Danny Nguyen <danny@keeb.io>
 #include QMK_KEYBOARD_H
 #include "nrmacro.h"
-#include "encodermacro.c"
+//#include "encodermacro.c"
 
 //Photoshop
 #define KC_PEXP MEH(KC_W)

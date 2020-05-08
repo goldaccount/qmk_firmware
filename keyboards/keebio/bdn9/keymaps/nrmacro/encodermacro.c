@@ -1,3 +1,4 @@
+/*
 void encoder_update_user(uint8_t index, bool clockwise) {
 	switch(biton32(layer_state)){
 		case _COLEMAK:
@@ -66,7 +67,8 @@ void encoder_update_user(uint8_t index, bool clockwise) {
 		break;
 	}
 }
-/*
+*/
+
 void encoder_update_user(uint8_t index, bool clockwise) {
 	if (index == 0) {
 		switch(biton32(layer_state)){
@@ -133,4 +135,4 @@ void encoder_update_user(uint8_t index, bool clockwise) {
 		}
 	}
 }
-*/
+

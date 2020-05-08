@@ -1,3 +1,4 @@
+/*
 void encoder_update_user(uint8_t index, bool clockwise) {
 	switch(biton32(layer_state)){
 		case _COLEMAK:
@@ -66,7 +67,8 @@ void encoder_update_user(uint8_t index, bool clockwise) {
 		break;
 	}
 }
-/*
+*/
+
 void encoder_update_user(uint8_t index, bool clockwise) {
 	if (index == 0) {
 		switch(biton32(layer_state)){
@@ -111,9 +113,9 @@ void encoder_update_user(uint8_t index, bool clockwise) {
 			break;
 			case _FN03:
 				if (clockwise) {
-					tap_code16(S(KC_VOLD));
+					tap_code16(KC_VOLD);
 				} else {
-					tap_code16(S(KC_VOLU));
+					tap_code16(KC_VOLU);
 				}
 			break;
 			case _FN04:
@@ -133,4 +135,5 @@ void encoder_update_user(uint8_t index, bool clockwise) {
 		}
 	}
 }
-*/
+
+

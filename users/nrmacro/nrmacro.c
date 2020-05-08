@@ -1,7 +1,11 @@
 #include "nrmacro.h"
 #include "advanceddance.c"
-#include "quantum.h"
-#include "action.h"
+//#include "quantum.h"
+//#include "action.h"
+#ifdef ENCODER_ENABLE
+#include "encodermacro.c"
+#endif
+
 
 extern keymap_config_t keymap_config;
 
