@@ -1,5 +1,4 @@
 #include "nr.h"
-#include "advanceddance.c"
 
 extern keymap_config_t keymap_config;
 
@@ -68,7 +67,7 @@ void iota_gfx_task_user(void) {
 #endif//SSD1306OLED
 
 //Combo
-
+#ifdef COMBO_ENABLE
 const uint16_t PROGMEM esc_combo[] = {KC_Q, KC_W, COMBO_END};
 const uint16_t PROGMEM tab_combo[] = {KC_W, KC_F, COMBO_END};
 
@@ -91,9 +90,11 @@ void process_combo_event(uint8_t combo_index, bool pressed) {
 			break;
 	}
 }
+#endif
 
 //Tap Dance
-
+#ifdef TAP_DANCE_ENABLE
+#include "advanceddance.c"
 void d_vol_finished (qk_tap_dance_state_t *state, void *user_data) {
 	xtap_state.state = count_dance(state); //Set state of tap to the count function
 	switch (xtap_state.state) {
@@ -285,6 +286,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 	[TD_XPLY] = ACTION_TAP_DANCE_FN(d_play),
 	[TD_VVOL] = ACTION_TAP_DANCE_FN_ADVANCED(NULL,d_vol_finished,d_vol_reset),
 };
+#endif
 
 void persistent_default_layer_set(uint16_t default_layer) {
   eeconfig_update_default_layer(default_layer);

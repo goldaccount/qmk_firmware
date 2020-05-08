@@ -3,22 +3,33 @@
 #include "config_common.h"
 
 #define GRAVE_ESC_CTRL_OVERRIDE
+
+#ifdef NKRO_ENABLE
 #define FORCE_NKRO
+#endif 
+
 #define ONESHOT_TAP_TOGGLE 3
-#define ONESHOT_TIMEOUT 250
+#define ONESHOT_TIMEOUT 200
 #define PERMISSIVE_HOLD
-#define TAPPING_TERM 250
+#define TAPPING_TERM 200
 #define TAPPING_TOGGLE 3
 #define IGNORE_MOD_TAP_INTERRUPT
+
+#ifdef COMBO_ENABLE
 #define COMBO_COUNT 2
 #define COMBO_TERM 25
+#endif
+
 /* Bootmagic Lite key configuration */
 #define BOOTMAGIC_LITE_ROW 0
 #define BOOTMAGIC_LITE_COLUMN 0
+
 //Mouse config
+#ifdef MOUSEKEY_ENABLE
 #define MOUSEKEY_INTERVAL 16
 #define MOUSEKEY_MAX_SPEED 7
 #define MOUSEKEY_WHEEL_TIME_TO_MAX 100
+#endif
 
 #ifdef RGBLIGHT_ENABLE
 //#undef RGBLED_NUM

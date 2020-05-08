@@ -48,7 +48,7 @@
     KC_##k30,    KC_NO, KC_##k32, KC_##k33, KC_##k34, KC_##k35, KC_##k36, KC_##k37, KC_##k38, KC_##k39, KC_##k3a, KC_##k3b,      	  KC_##k3d, KC_##k3e, \
     KC_##k40, KC_##k41,      	  KC_##k43, KC_##k44,      		KC_##k46,      		KC_##k48,      		KC_##k4a, KC_##k4b, KC_##k4c, KC_##k4d, KC_##k4e  \
 	)
-
+#define LAYOUT_kc LAYOUT_splits
 /* LAYOUT_true_hhkb
  * ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
  * │00 │01 │02 │03 │04 │05 │06 │07 │08 │09 │0a │0b │0c │0d │0e │

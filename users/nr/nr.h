@@ -1,6 +1,7 @@
 #pragma once
 #include "quantum.h"
 #include "action.h"
+#include "wrappers.h"
 
 #include QMK_KEYBOARD_H
 
@@ -11,7 +12,6 @@
 #define _FN03 3
 #define _FN04 4
 #define _FN05 5
-//#define _FN16 16
 
 enum custom_keycodes {
   COLEMAK = SAFE_RANGE,
@@ -29,7 +29,8 @@ enum custom_keycodes {
 #define KC_ KC_TRNS
 #define KC_RST RESET
 
-
+//RGB controls
+#ifdef RGBLIGHT_ENABLE
 #define KC_RTOG RGB_TOG
 #define KC_RMOD RGB_MOD
 #define KC_RVAI RGB_VAI
@@ -38,11 +39,14 @@ enum custom_keycodes {
 #define KC_RHUD RGB_HUD
 #define KC_RSAI RGB_SAI
 #define KC_RSAD RGB_SAD
+#endif
+
+//Backlight controls
+#ifdef BACKLIGHT_ENABLE
 #define KC_BLON	BL_TOGG
 #define KC_BLLV	BL_STEP
 #define KC_BLBR	BL_BRTG
-
-
+#endif
 
 //Layers tap
 #define KC_EN03 LT(_FN03,KC_ENT)
@@ -77,15 +81,17 @@ enum custom_keycodes {
 #define KC_SFTX LSFT_T(KC_X)
 #define KC_SFTM LSFT_T(KC_M)
 
+#ifdef COMBO_ENABLE
 //Combo
 
 enum combo_events {
 	QW_ESC,
 	WF_TAB,
 };
+#endif
 
 //Tap dance
-
+#ifdef TAP_DANCE_ENABLE
 enum {
 	TD_SMQT = 0,
 	TD_XPRN,
@@ -124,3 +130,4 @@ enum {
 #define KC_XPGU TD(TD_XPGU)
 #define KC_XVOL TD(TD_VVOL)
 #define KC_XPLY TD(TD_XPLY)
+#endif

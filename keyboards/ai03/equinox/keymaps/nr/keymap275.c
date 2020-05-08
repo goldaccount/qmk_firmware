@@ -7,7 +7,7 @@
 #include QMK_KEYBOARD_H
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-/*
+
   [_QWERTY] = LAYOUT_split3( 
 	  ALTA,   Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,  BSPC, 	
        LCTL,CTLA,   S,   D,   F,   G,   H,   J,   K,   L,SMQT, QUOT, 	
@@ -38,8 +38,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           COLE,BTN5,CAPW,CAPC,CAPG,    ,    ,BTN3,    ,    ,       , 	
          ,    ,     ,          XIMG,               ,     ,    ,        
   ),
-*/
 
+/*
   [_QWERTY] = LAYOUT_split275( 
 	  ALTA,   Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,  BSPC, 	
        LCTL,CTLA,   S,   D,   F,   G,   H,   J,   K,   L,SMQT, QUOT, 	
@@ -70,5 +70,5 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           COLE,BTN5,CAPW,CAPC,CAPG,    ,    ,BTN3,    ,    ,       , 	
          ,    ,     ,             ,    ,           ,     ,    ,        
   ),
-
+*/
 };

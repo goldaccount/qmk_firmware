@@ -49,5 +49,6 @@
 		{ KC_##R30, KC_##R31, KC_##R32, KC_##R33, KC_##R34, KC_##R35 },  \
 		{ KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO } \
 	}
-
+//#define LAYOUT_kc LAYOUT_4
 #define LAYOUT_ortho_5x12 LAYOUT
+

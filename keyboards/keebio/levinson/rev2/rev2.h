@@ -74,3 +74,4 @@
 	}
 
 #define LAYOUT_ortho_4x12 LAYOUT
+//#define LAYOUT_kc LAYOUT_4
