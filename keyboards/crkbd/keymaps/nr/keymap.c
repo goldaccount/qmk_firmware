@@ -7,14 +7,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ALTA,   Q,   W,   E,   R,   T,		   Y,   U,   I,   O,   P,BSPC, \
     LCTL,CTLA,   S,   D,   F,   G,		   H,   J,   K,   L,SMQT,QUOT, \
     OSFT,   Z,   X,   C,   V,   B,		   N,   M,COMM, DOT,WISL,XBSL, \
-				   ALAP,BS03,SP04,		EN05,BS04,LGUI\
+				   EN05,BS03,SP04,		EN05,BS04,ALAP\
   ),
 
   [_COLEMAK] = LAYOUT_kc(
     ALTA,   Q,   W,   F,   P,   G,		   J,   L,   U,   Y,SMQT,BSPC, \
     LCTL,CTLA,   R,   S,   T,   D,		   H,   N,   E,   I,   O, DEL, \
     OSFT,   Z,   X,   C,   V,   B,		   K,   M,COMM, DOT,WISL,XBSL, \
-				   ALAP,BS03,SP04,		EN05,BS04,LGUI\
+				   EN05,BS03,SP04,		EN05,BS04,ALAP\
   ),
 
   [_FN03] = LAYOUT_kc(

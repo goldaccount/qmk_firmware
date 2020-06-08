@@ -30,7 +30,7 @@ enum custom_keycodes {
 #define KC_RST RESET
 
 //RGB controls
-#ifdef RGBLIGHT_ENABLE
+//#ifdef RGBLIGHT_ENABLE
 #define KC_RTOG RGB_TOG
 #define KC_RMOD RGB_MOD
 #define KC_RVAI RGB_VAI
@@ -39,7 +39,7 @@ enum custom_keycodes {
 #define KC_RHUD RGB_HUD
 #define KC_RSAI RGB_SAI
 #define KC_RSAD RGB_SAD
-#endif
+//#endif
 
 //Backlight controls
 #ifdef BACKLIGHT_ENABLE
@@ -73,12 +73,14 @@ enum custom_keycodes {
 #define KC_CAPG G(A(KC_PSCR))
 
 //Alpha mod
+#define KC_ALTQ LALT_T(KC_Q)
 #define KC_CTLA LCTL_T(KC_A)
 #define KC_ALTZ LALT_T(KC_Z)
 #define KC_ALCO LALT_T(KC_COMM)
 #define KC_CTLD LCTL_T(KC_DOT)
 #define KC_WISL GUI_T(KC_SLSH)
 #define KC_SFTX LSFT_T(KC_X)
+#define KC_SFTZ LSFT_T(KC_Z)
 #define KC_SFTM LSFT_T(KC_M)
 
 #ifdef COMBO_ENABLE

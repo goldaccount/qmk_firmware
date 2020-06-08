@@ -25,7 +25,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PRODUCT_ID      0x6464
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    Seth
-#define PRODUCT         Tanuki by NR
+#define PRODUCT         Tanuki
 #define DESCRIPTION     40% Trash Panda keyboard
 
 /* key matrix size */
@@ -49,7 +49,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define LOCKING_RESYNC_ENABLE
 
 #define RGB_DI_PIN D1
-#define RGBLED_NUM 12
+#define RGBLED_NUM 5
 
 /* disable action features */
 //#define NO_DEBUG
