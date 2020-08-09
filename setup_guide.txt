@@ -49,3 +49,6 @@ cd qmk
 qmk setup
 
 #Select yes to install missing submodules: LUFA, DFU etc
+
+#Store credential
+git config credential.helper store 
