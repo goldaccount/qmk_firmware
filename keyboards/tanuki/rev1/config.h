@@ -21,21 +21,21 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "config_common.h"
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID       0x6666
-#define PRODUCT_ID      0x6666
-#define DEVICE_VER      0x0002
-#define MANUFACTURER    Sammbastion
+#define VENDOR_ID       0xFEED
+#define PRODUCT_ID      0x6464
+#define DEVICE_VER      0x0001
+#define MANUFACTURER    Seth
 #define PRODUCT         Tanuki
-#define DESCRIPTION     A better 40% Trash Panda keyboard
+#define DESCRIPTION     40% Trash Panda keyboard
 
 /* key matrix size */
 #define MATRIX_ROWS 4
 #define MATRIX_COLS 11
 
 #define DIODE_DIRECTION COL2ROW
-#define MATRIX_COL_PINS {  F0 , F1 , F4 , F5 , F6 , F7 , C7 , C6 , B5 , B6 , B7 }
-#define MATRIX_ROW_PINS {  B2 , B3 , D6 , B4 }
-#define UNUSED_PINS { B0 , B1 , D0 , D1 , D2 , D3 , D4 , D5 , E6 }
+#define MATRIX_COL_PINS {  B3 , B2 , B6 , B5 , B4 , E6 , D7 , C6 , F4 , F5 , F6 }
+#define MATRIX_ROW_PINS {  F7 , B1 , D4 , D0 }
+#define UNUSED_PINS
 
 /* define if matrix has ghost */
 //#define MATRIX_HAS_GHOST
@@ -48,8 +48,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Locking resynchronize hack */
 #define LOCKING_RESYNC_ENABLE
 
-#define RGB_DI_PIN D7
-#define RGBLED_NUM 11
+#define RGB_DI_PIN D1
+#define RGBLED_NUM 5
 
 /* disable action features */
 //#define NO_DEBUG

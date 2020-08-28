@@ -7,35 +7,35 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	 ALTA,   Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P, BSPC, 	\
 	  LCTL,CTLA,   S,   D,   F,   G,   H,   J,   K,   L,SMQT,QUOT, 	\
 	   OSFT,   Z,   X,   C,   V,   B,   N,   M,COMM, DOT, WISL, 	\
-	      GESC,ALAP,BS03,     SP05,    BS04,EN03,LGUI 				\
+	      GESC,ALAP,BS03,     SP05,    BS04,,EN03,LGUI 				\
 	),
 
 [_COLEMAK] = LAYOUT_kc( \
 	 ALTA,   Q,   W,   F,   P,   G,   J,   L,   U,   Y,SMQT, BSPC, 	\
 	  LCTL,CTLA,   R,   S,   T,   D,   H,   N,   E,   I,   O,QUOT, 	\
 	   OSFT,   Z,   X,   C,   V,   B,   K,   M,COMM, DOT, WISL, 	\
-	      GESC,ALAP,BS03,     SP05,    BS04,EN03,LGUI 				\
+	      GESC,ALAP,BS03,     SP05,    BS04,,EN03,LGUI 				\
 	),
 
 [_FN03] = LAYOUT_kc( \
 	XGRV,XPGU,HOME,  UP, END, INS,CIRC,AMPR,ASTR,XPRN,XGRV,  DEL, 	\
 	  DEL,XPGD,LEFT,DOWN,RGHT, ENT,EXLM,  AT,HASH, DLR,PERC,    , 	\
 	   CAPS,XVOL,XCPY,XCTB,XSTB,XPLY,XEQL,XMIN,XBRC,XCBR, XBSL, 	\
-	          ,XCP2,    ,    XPLY,       ,    ,      				\
+	          ,XCP2,    ,    XPLY,       ,    ,,      				\
 	),
 
 [_FN04] = LAYOUT_kc( \
 	RTOG,   1,   2,   3,   4,   5,    ,  F9, F10, F11, F12,     , 	\
 	 RMOD,   6,   7,   8,   9,   0,    ,  F5,  F6,  F7,  F8,    , 	\
 	   RHUI,RSAI,    ,CAPW,CAPC,CAPG,PSCR,  F1,  F2,  F3,   F4,	 	\
-	      RVAI,RVAD,    ,        ,        ,    ,      				\
+	      RVAI,RVAD,    ,        ,        ,    ,,      				\
 	),
 
 [_FN05] = LAYOUT_kc( \
 	 RST,  NO,BTN2,MS_U,BTN1,WH_U,    ,BTN4,BTN5,    ,    ,     , 	\
 	 QWER,  NO,MS_L,MS_D,MS_R,WH_D,    ,BTN1,BTN2,    ,    ,     , 	\
 	   COLE,  NO,XCP2,BTN3,WH_L,WH_R,    ,BTN3,    ,    ,     , 	\
-	          ,     ,XIMG,       ,        ,    ,      				\
+	          ,     ,XIMG,       ,        ,    ,,      				\
 	),
 	
 };
