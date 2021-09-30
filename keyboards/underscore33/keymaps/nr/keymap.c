@@ -20,7 +20,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_FN03] = LAYOUT_33_split_kc(
     XPGU,HOME,  UP, END, INS,CIRC,AMPR,ASTR,XPRN, DEL, 
     XPGD,LEFT,DOWN,RGHT, ENT,EXLM,  AT,HASH, DLR,PERC, 
-    XVOL,XCPY,XCTB,XSTB,XPLY,XEQL,XMIN,XBRC,XCBR,XBSL, 
+    VOLD,XCPY,XCTB,XSTB,XPLY,XEQL,XMIN,XBRC,XCBR,XBSL, 
          TAB,       NO,   XPLY,      ESC,  CAPS //
   ),
   
@@ -35,7 +35,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      RST,  NO,  NO,  NO,  NO,    7,   8,   9,PPLS,PMNS, 
     QWER,  NO,  NO,  NO,  NO,    4,   5,   6,PAST,PSLS, 
     COLE,  NO,CAPW,CAPC,CAPG,    1,   2,   3,PDOT,    , 
-          NO,       NO,    NO,       NO,   0   //
+          M1,       NO,    NO,       NO,   0   //
   ),
 /*
   [_QWERTY] = LAYOUT_33_big_space_kc(

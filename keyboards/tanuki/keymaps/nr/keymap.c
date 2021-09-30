@@ -4,14 +4,14 @@
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_QWERTY] = LAYOUT_kc( \
-	 ALTA,   Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P, BSPC, 	\
-	  LCTL,CTLA,   S,   D,   F,   G,   H,   J,   K,   L,SMQT,QUOT, 	\
-	   OSFT,   Z,   X,   C,   V,   B,   N,   M,COMM, DOT, WISL, 	\
-	      GESC,ALAP,BS03,     SP05,    BS04,,EN03,LGUI 				\
+	 GESC,   Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P, LGUI, 	\
+	  LCTL,   A,   S,   D,   F,   G,   H,   J,   K,   L,SMQT,QUOT, 	\
+	   LSFT,   Z,   X,   C,   V,   B,   N,   M,COMM, DOT, WISL, 	\
+	      LCTL, APP,BSPC,    SP04,    BS05,, DEL,LALT 				\
 	),
 
 [_COLEMAK] = LAYOUT_kc( \
-	 ALTA,   Q,   W,   F,   P,   G,   J,   L,   U,   Y,SMQT, BSPC, 	\
+	 RTOG,   Q,   W,   F,   P,   G,   J,   L,   U,   Y,SMQT, BSPC, 	\
 	  LCTL,CTLA,   R,   S,   T,   D,   H,   N,   E,   I,   O,QUOT, 	\
 	   OSFT,   Z,   X,   C,   V,   B,   K,   M,COMM, DOT, WISL, 	\
 	      GESC,ALAP,BS03,     SP05,    BS04,,EN03,LGUI 				\
@@ -50,15 +50,16 @@ bool toggleLayerRGB(void){
 	return true;
 	}
 }
+*/
 
 void matrix_init_user(void){
 	rgblight_enable();
   	rgblight_mode(1);
-	rgblight_sethsv(0,10,255);
+	rgblight_sethsv(0,255,255);
 }
 
 //check for layer and if there was a keypress change underglow lighting
-
+/*
 void matrix_scan_kb(void){
 	if(lRGB == true)
 	{

@@ -24,8 +24,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PRODUCT_ID      0x0000
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    KBDFans
-#define PRODUCT         kbd8x
-#define DESCRIPTION     Custom TKL Keyboard
+#define PRODUCT         KBD8x by Shermann Saludez
+#define DESCRIPTION     Custom TKL & WKL keyboard
 
 /* key matrix size */
 #define MATRIX_ROWS 6
@@ -52,7 +52,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define BACKLIGHT_BREATHING
 #define BACKLIGHT_LEVELS 3
 #endif
-#define RGB_DI_PIN E2
+//#define RGB_DI_PIN E2
 #ifdef RGB_DI_PIN
 #define RGBLIGHT_ANIMATIONS
 #define RGBLED_NUM 20

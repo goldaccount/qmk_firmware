@@ -2,6 +2,7 @@
 #include "quantum.h"
 #include "action.h"
 #include "wrappers.h"
+#include "macros.h"
 
 #include QMK_KEYBOARD_H
 
@@ -19,6 +20,7 @@ enum custom_keycodes {
   FN03,
   FN04,
   FN05,
+  M1, M2, M3, M4, M5,
 };
 
 #define KC_QWER QWERTY 
@@ -82,6 +84,12 @@ enum custom_keycodes {
 #define KC_SFTX LSFT_T(KC_X)
 #define KC_SFTZ LSFT_T(KC_Z)
 #define KC_SFTM LSFT_T(KC_M)
+
+#define KC_M1 M1
+#define KC_M2 M2
+#define KC_M3 M3
+#define KC_M4 M4
+#define KC_M5 M5
 
 #ifdef COMBO_ENABLE
 //Combo
