@@ -19,7 +19,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_FN03] = LAYOUT_kc(
     XPGU,HOME,  UP, END, INS,      CIRC,AMPR,ASTR,XPRN,XGRV, 
-    XPGD,LEFT,DOWN,RGHT, ENT,      EXLM,  AT,HASH, DLR,PERC, 
+    XPGD,LEFT,DOWN,RGHT, DEL,      EXLM,  AT,HASH, DLR,PERC, 
     XVOL,XCPY,XCTB,XSTB,XPLY,      XEQL,XMIN,XBRC,XCBR,XBSL, 
                ESC,    ,MPLY,          //
   ),
