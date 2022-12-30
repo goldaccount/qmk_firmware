@@ -5,13 +5,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_QWERTY] = LAYOUT_4( \
 //┌────┬────┬────┬────┬────┬────┐         ┌────┬────┬────┬────┬────┬────┐
-    TAB,  Q ,   W,   E,   R,   T,             Y,   U,   I,   O,   P,BSPC, \
+    TAB,   Q,   W,   E,   R,   T,             Y,   U,   I,   O,   P,BSPC, \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-   LCTL,CTLA,   S,   D,   F,   G,             H,   J,   K,   L,SMQT,QUOT, \
+   LCTL,   A,   S,   D,   F,   G,             H,   J,   K,   L,SMQT,QUOT, \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-   OSFT,  Z ,   X,   C,   V,   B,             N,   M,COMM, DOT,WISL,XBSL, \
+   OSFT,   Z,   X,   C,   V,   B,             N,   M,COMM, DOT,WISL,XBSL, \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-   EN05,GESC,LGUI,ALAP,BS03, SPC,          EN05,BS04,LEFT,DOWN, UP ,RGHT  \
+   GESC,LGUI,ALAP,BS03, SPC, SPC,          EN05,BS04,LEFT,DOWN, UP ,RGHT  \
 //└────┴────┴────┴────┴────┴────┘         └────┴────┴────┴────┴────┴────┘
 ),
 
@@ -19,11 +19,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //┌────┬────┬────┬────┬────┬────┐         ┌────┬────┬────┬────┬────┬────┐
     TAB,   Q,   W,   F,   P,   G,             J,   L,   U,   Y,SMQT,BSPC, \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-   LCTL,CTLA,   R,   S,   T,   D,             H,   N,   E,   I,   O,QUOT, \
+   LCTL,   A,   R,   S,   T,   D,             H,   N,   E,   I,   O,QUOT, \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
    OSFT,   Z,   X,   C,   V,   B,             K,   M,COMM, DOT,WISL,XBSL, \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-   EN05,GESC,LGUI,ALAP,BS03, SPC,          EN05,BS04,LEFT,DOWN, UP ,RGHT  \
+   GESC,LGUI,ALAP,BS03, SPC, SPC,          EN05,BS04,LEFT,DOWN, UP ,RGHT  \
 //└────┴────┴────┴────┴────┴────┘         └────┴────┴────┴────┴────┴────┘
 ),
 
@@ -34,7 +34,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     DEL,XPGD,LEFT,DOWN,RGHT, ENT,          EXLM,  AT,HASH, DLR,PERC,XGRV, \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
    CAPS,XVOL,XCPY,XCTB,XSTB,XPLY,          XEQL,XMIN,    ,    ,    ,    , \
-//├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤  
+//├────┼────┼────┼────┼────┼────┤          ├────┼────┼────┼────┼────┼────┤  
    PSCR, APP, TAB,    ,    ,MPLY,              ,    ,XBRC,XCBR,RBRC,RCBR \
 //└────┴────┴────┴────┴────┴────┘         └────┴────┴────┴────┴────┴────┘
 ),
@@ -59,7 +59,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
    COLE,BLBR,    ,CAPW,CAPC,CAPG,             1,   2,   3,    ,    ,    , \
 //├────┼────┼────┼────┼────┼────┤         ├────┼────┼────┼────┼────┼────┤
-	 NO,    ,    ,XCP2,XIMG,CAPG,              ,   0,PDOT,    ,    ,      \
+	 NO,    ,    ,XCP2,XIMG,CAPG,            NO,   0,PDOT,    ,    ,      \
 //└────┴────┴────┴────┴────┴────┘         └────┴────┴────┴────┴────┴────┘
 ),
 
