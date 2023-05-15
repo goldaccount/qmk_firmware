@@ -4,15 +4,15 @@
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	
   [_QWERTY] = LAYOUT_kc(
-     TAB,   Q,   W,   E,   R,   T,		   Y,   U,   I,   O,   P,BSPC, \
-    LCTL,   A,   S,   D,   F,   G,		   H,   J,   K,   L,SMQT,QUOT, \
+    RTOG,   Q,   W,   E,   R,   T,		   Y,   U,   I,   O,   P,BSPC, \
+    LCTL,CTLA,   S,   D,   F,   G,		   H,   J,   K,   L,SMQT,QUOT, \
     OSFT,   Z,   X,   C,   V,   B,		   N,   M,COMM, DOT,WISL,XBSL, \
 				   EN05,BS03,SP04,		EN05,BS04,ALAP\
   ),
 
   [_COLEMAK] = LAYOUT_kc(
-     TAB,   Q,   W,   F,   P,   G,		   J,   L,   U,   Y,SMQT,BSPC, \
-    LCTL,   A,   R,   S,   T,   D,		   H,   N,   E,   I,   O, DEL, \
+    RTOG,   Q,   W,   F,   P,   G,		   J,   L,   U,   Y,SMQT,BSPC, \
+    LCTL,CTLA,   R,   S,   T,   D,		   H,   N,   E,   I,   O, DEL, \
     OSFT,   Z,   X,   C,   V,   B,		   K,   M,COMM, DOT,WISL,XBSL, \
 				   EN05,BS03,SP04,		EN05,BS04,ALAP\
   ),
@@ -32,9 +32,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),  
 
   [_FN05] = LAYOUT_kc(
-     RST,RTOG,RMOD,    ,    ,    ,         7,   8,   9,PPLS,PMNS,CALC, \
-    QWER,RHUI,RVAI,    ,    ,    ,         4,   5,   6,PAST,PSLS,    , \
-    COLE,RSAI,RVAD,CAPW,CAPC,CAPG,         1,   2,   3,PDOT,    ,    , \
+     RST,    ,    ,    ,    ,    ,         7,   8,   9,PPLS,PMNS,CALC, \
+    QWER,    ,    ,    ,    ,    ,         4,   5,   6,PAST,PSLS,    , \
+    COLE,    ,    ,CAPW,CAPC,CAPG,         1,   2,   3,PDOT,    ,    , \
                        ,    ,    ,          ,   0,    \
   ),
 };
