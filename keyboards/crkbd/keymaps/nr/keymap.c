@@ -27,7 +27,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_FN04] = LAYOUT_kc(
      ESC,BTN4,BTN2,MS_U,BTN1,WH_U,          ,  F9, F10, F11, F12,    , \
     BSPC,BTN5,MS_L,MS_D,MS_R,WH_D,      BTN1,  F5,  F6,  F7,  F8,    , \
-        ,    ,XCP2,BTN3,WH_L,WH_R,      PSCR,  F1,  F2,  F3,  F4,    , \
+	  M5,  M1,  M2,BTN3,WH_L,WH_R,      PSCR,  F1,  F2,  F3,  F4,    , \
                    XIMG, TAB,    ,          ,    ,    \
   ),  
 
