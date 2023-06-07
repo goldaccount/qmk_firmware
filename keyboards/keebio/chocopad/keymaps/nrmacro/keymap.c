@@ -11,7 +11,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //├────┼────┼────┼────┤
    LSFT,XCP2,XCAP,XCPY, \
 //├────┼────┼────┼────┤
-   XVOL,EN05,BS04,SP03  \
+   XVOL,EN05,BS03,SP04  \
 //└────┴────┴────┴────┘
   ),
 
@@ -23,7 +23,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //├────┼────┼────┼────┤
    PAST,  P1,  P2,  P3, \
 //├────┼────┼────┼────┤
-   PSLS,PDOT,    ,  P0  \
+   PSLS,PDOT,  P0,      \
 //└────┴────┴────┴────┘
   ),  
   
@@ -35,7 +35,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //├────┼────┼────┼────┤
        ,WH_L,WH_U,WH_R, \
 //├────┼────┼────┼────┤
-   XIMG,    ,WH_D,      \
+   XIMG,    ,    ,WH_D  \
 //└────┴────┴────┴────┘
   ),
   
@@ -43,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //┌────┬────┬────┬────┐
     RST,BLON,BLLV,BLBR, \
 //├────┼────┼────┼────┤
-       ,    ,    ,    , \
+       , M1 , M2 ,    , \
 //├────┼────┼────┼────┤
        ,XROW,XHED,XCAS, \
 //├────┼────┼────┼────┤

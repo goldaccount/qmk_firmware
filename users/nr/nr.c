@@ -320,11 +320,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         break;
 	case M2:
 		if (record->event.pressed) {
-			SEND_STRING(SS_LSFT(SS_TAP(X_END)) SS_TAP(X_BSPC) ".jpg" SS_DELAY(100));//Select to end, delete, type .jpg
-			SEND_STRING(SS_LCTL(SS_TAP(X_LEFT)) SS_DELAY(150) SS_LCTL(SS_TAP(X_LEFT)) SS_DELAY(150) SS_TAP(X_BSPC) "." SS_DELAY(150)); //Back two words, delete one, type .
-			SEND_STRING(SS_LCTL(SS_TAP(X_LEFT)) SS_TAP(X_BSPC) "." SS_DELAY(150)); //Back one word, delete one, type .
+			SEND_STRING(SS_LSFT(SS_TAP(X_END)) SS_TAP(X_BSPC) ".jpg" SS_DELAY(250));//Select to end, delete, type .jpg
+			SEND_STRING(SS_LCTL(SS_TAP(X_LEFT)) SS_DELAY(250) SS_LCTL(SS_TAP(X_LEFT)) SS_DELAY(150) SS_TAP(X_BSPC) "." SS_DELAY(150)); //Back two words, delete one, type .
+			SEND_STRING(SS_LCTL(SS_TAP(X_LEFT)) SS_TAP(X_BSPC) "." SS_DELAY(250)); //Back one word, delete one, type .
 //			SEND_STRING(SS_LCTL(SS_TAP(X_LEFT)) SS_LSFT(SS_TAP(X_HOME)) SS_TAP(X_BSPC)); //Back one word, select to start, delete one
-			SEND_STRING(SS_TAP(X_HOME) SS_DELAY(100) SS_LCTL(SS_TAP(X_RIGHT)) SS_DELAY(100) SS_LCTL(SS_TAP(X_RIGHT)) SS_DELAY(100) SS_LCTL(SS_TAP(X_RIGHT)) SS_DELAY(100) SS_TAP(X_DELETE) SS_DELAY(100) SS_LSFT(SS_TAP(X_HOME)) SS_DELAY(100) SS_TAP(X_BSPC)); //Back one word, go to start, forward 3 words, delete once, select to start, delete all
+			SEND_STRING(SS_TAP(X_HOME) SS_DELAY(250) SS_LCTL(SS_TAP(X_RIGHT)) SS_DELAY(100) SS_LCTL(SS_TAP(X_RIGHT)) SS_DELAY(100) SS_LCTL(SS_TAP(X_RIGHT)) SS_DELAY(100) SS_TAP(X_DELETE) SS_DELAY(100) SS_LSFT(SS_TAP(X_HOME)) SS_DELAY(100) SS_TAP(X_BSPC)); //Back one word, go to start, forward 3 words, delete once, select to start, delete all
 		} else {
 			// when keycode released
 		}
