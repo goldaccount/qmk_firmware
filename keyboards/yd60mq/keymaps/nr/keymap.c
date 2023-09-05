@@ -13,10 +13,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 	[_COLEMAK] = LAYOUT_minila( 
 	GESC,   1,   2,   3,   4,   5,   6,   7,   8,   9,   0,XMIN,XEQL,BSPC, DEL,		
-	   ALTA,   Q,   W,   F,   P,   G,   J,   L,   U,   Y,SMQT,XBRC,RBRC,   XBSL,		
+	   ALTA,   Q,   W,   F,   P,   G,   J,   L,   U,   Y,SMQT,XBRC,RBRC,  XBSL,		
 	   LCTL,CTLA,   R,   S,   T,   D,   H,   N,   E,   I,   O,QUOT,        ENT,		
 	     OSFT,   Z,   X,   C,   V,   B,   K,   M,COMM, DOT,SLSH,XGRV,     RSFT,		
-          APP, LGUI, LALT, BS03,     SPC     , EN04, EN05,LEFT,DOWN,  UP,RGHT		
+          APP, LGUI, LALT, BS03,     SPC     , EN04, EN05,LEFT,DOWN,  UP, RGHT		
 	),
 	
 	[_FN03] = LAYOUT_minila(
@@ -36,7 +36,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	),
 
 	[_FN05] = LAYOUT_minila( 
-	 RST,    ,    ,    ,    ,    ,    ,    ,    ,    ,    ,    ,    ,    ,    ,		
+	 RST,    ,    ,    ,    ,    ,    ,    ,    ,    ,    ,    , M3 , M2 , M1 ,		
 	  QWER,  NO,BTN2,MS_U,BTN1,WH_U,    ,BTN4,BTN5,    ,    ,    ,    ,       ,		
 	   COLE,  NO,MS_L,MS_D,MS_R,WH_D,    ,BTN1,BTN2,    ,    ,    ,           ,		
 	         ,  NO,XCP2,BTN3,WH_L,WH_R,    ,BTN3,    ,    ,    ,    ,         ,		
