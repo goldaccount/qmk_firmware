@@ -25,7 +25,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PRODUCT_ID      0x6666
 #define DEVICE_VER      0x0002
 #define MANUFACTURER    Sammbastion
-#define PRODUCT         Tanuki
+#define PRODUCT         Tanuki v2
 #define DESCRIPTION     A better 40% Trash Panda keyboard
 
 /* key matrix size */

@@ -33,7 +33,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_FN05] = LAYOUT_33_split_kc(
      RST,  NO,  NO,  NO,  NO,    7,   8,   9,PPLS,PMNS, 
-    QWER,  NO,  NO,  NO,  NO,    4,   5,   6,PAST,PSLS, 
+    QWER,  NO,  M1,  M3,  M2,    4,   5,   6,PAST,PSLS, 
     COLE,  NO,CAPW,CAPC,CAPG,    1,   2,   3,PDOT,    , 
           M1,       NO,    NO,       NO,   0   //
   ),

@@ -1,4 +1,4 @@
-#include "quAntum.h"
+#include "quantum.h"
 
 // The first section contAins All of the Arguments
 // The second converts the Arguments into A two-dimensionAl ArrAy
