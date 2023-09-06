@@ -24,7 +24,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define VENDOR_ID       0x6666
 #define PRODUCT_ID      0x6666
 #define DEVICE_VER      0x0002
-#define MANUFACTURER    Sammbastion
+#define MANUFACTURER    sb
 #define PRODUCT         Tanuki v2
 #define DESCRIPTION     A better 40% Trash Panda keyboard
 
@@ -51,6 +51,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGB_DI_PIN D7
 #define RGBLED_NUM 11
 
+#ifdef RGBLIGHT_ENABLE
+#define RGBLIGHT_ANIMATIONS
+//#define RGBLIGHT_EFFECT_RAINBOW_MOOD
+//#define RGBLIGHT_EFFECT_ALTERNATING
+//#define RGBLIGHT_EFFECT_BREATHE_CENTER 2.7
+//#define RGBLIGHT_SLEEP
+#define RGBLIGHT_HUE_STEP 15
+#define RGBLIGHT_SAT_STEP 8
+#define RGBLIGHT_VAL_STEP 8
+#endif
 /* disable action features */
 //#define NO_DEBUG
 //#define NO_PRINT
