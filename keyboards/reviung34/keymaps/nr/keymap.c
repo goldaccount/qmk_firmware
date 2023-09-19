@@ -33,7 +33,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_FN05] = LAYOUT_kc(
      RST,    ,    ,    ,    ,         7,   8,   9,PPLS,PMNS, 
-    QWER,    ,    ,    ,    ,         4,   5,   6,PAST,PSLS, 
+    QWER, M1 , M5 , M3 , M2 ,         4,   5,   6,PAST,PSLS, 
     COLE,    ,CAPW,CAPC,CAPG,         1,   2,   3,   0,PDOT, 
               CAPS,XIMG,    ,          //
   ),

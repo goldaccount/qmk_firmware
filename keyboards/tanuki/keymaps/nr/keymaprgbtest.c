@@ -11,9 +11,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	),
 
 [_COLEMAK] = LAYOUT_kc( \
-	  TAB,   Q,   W,   F,   P,   G,   J,   L,   U,   Y,SMQT, BSPC, \
-	  LCTL,   A,   R,   S,   T,   D,   H,   N,   E,   I,   O,QUOT, 	\
-	   OSFT,   Z,   X,   C,   V,   B,   K,   M,COMM, DOT, WISL, 	\
+	 RTOG,RSAI,   W,   F,   P,   G,   J,   L,   U,   Y,SMQT, BSPC, \
+	  RMOD,RVAI,   R,   S,   T,   D,   H,   N,   E,   I,   O,QUOT, 	\
+	   RHUI,RVAD,   X,   C,   V,   B,   K,   M,COMM, DOT, WISL, 	\
 	      GESC,ALAP,BS03,     SP05,    EN04,,EN03,LGUI 				\
 	),
 

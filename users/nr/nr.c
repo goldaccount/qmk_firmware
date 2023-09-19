@@ -329,6 +329,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 			// when keycode released
 		}
 		break;
+	case M3:
+		if (record->event.pressed) {
+			SEND_STRING("bt twitter <" SS_DELAY(150) SS_LCTL("v") SS_DELAY(150) SS_TAP(X_END) SS_DELAY(150) SS_LCTL(SS_TAP(X_BSPC)) SS_DELAY(150) SS_LCTL(SS_TAP(X_BSPC)) SS_TAP(X_BSPC) ">");
+		} else {
+			SEND_STRING(SS_TAP(X_ENT));
+			// when keycode released
+		}
+		break;
 	case M5:
 		if (record->event.pressed) {
 			SEND_STRING("Test Macro M5");
