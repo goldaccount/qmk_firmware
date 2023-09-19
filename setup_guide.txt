@@ -12,6 +12,7 @@ sudo apt-get -yq install \
         dfu-util \
         diffutils \
         gcc \
+	avr-libc \
         gcc-arm-none-eabi \
         gcc-avr \
         git \
