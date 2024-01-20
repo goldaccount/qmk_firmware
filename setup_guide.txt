@@ -52,3 +52,6 @@ qmk setup
 
 #Store credential
 git config credential.helper store 
+get python3-pip python3.11-venv
+mkdir venv1
+venv1/bin/pip install qmk
