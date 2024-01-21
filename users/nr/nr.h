@@ -41,6 +41,7 @@ enum custom_keycodes {
 #define KC_RHUD RGB_HUD
 #define KC_RSAI RGB_SAI
 #define KC_RSAD RGB_SAD
+#define KC_VLCK VLK_TOG
 //#endif
 
 //Backlight controls
