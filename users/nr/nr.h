@@ -20,7 +20,7 @@ enum custom_keycodes {
   FN03,
   FN04,
   FN05,
-  M1, M2, M3, M4, M5,
+  M1, M2, M3, M4, M5, M6
 };
 
 #define KC_QWER QWERTY 
@@ -91,6 +91,7 @@ enum custom_keycodes {
 #define KC_M3 M3
 #define KC_M4 M4
 #define KC_M5 M5
+#define KC_M6 M6
 
 #ifdef COMBO_ENABLE
 //Combo
