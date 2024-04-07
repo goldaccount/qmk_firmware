@@ -123,6 +123,7 @@ enum {
 	TD_XVOL,
 	TD_XPLY,
 	TD_VVOL,
+	TD_XPSC,
 };
 
 #define KC_SMQT TD(TD_SMQT)
@@ -142,4 +143,5 @@ enum {
 #define KC_XPGU TD(TD_XPGU)
 #define KC_XVOL TD(TD_VVOL)
 #define KC_XPLY TD(TD_XPLY)
+#define KC_XPSC TD(TD_XPSC)
 #endif
