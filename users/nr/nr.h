@@ -20,7 +20,7 @@ enum custom_keycodes {
   FN03,
   FN04,
   FN05,
-  M1, M2, M3, M4, M5,
+  M1, M2, M3, M4, M5, M6
 };
 
 #define KC_QWER QWERTY 
@@ -41,6 +41,7 @@ enum custom_keycodes {
 #define KC_RHUD RGB_HUD
 #define KC_RSAI RGB_SAI
 #define KC_RSAD RGB_SAD
+#define KC_VLCK VLK_TOG
 //#endif
 
 //Backlight controls
@@ -90,6 +91,7 @@ enum custom_keycodes {
 #define KC_M3 M3
 #define KC_M4 M4
 #define KC_M5 M5
+#define KC_M6 M6
 
 #ifdef COMBO_ENABLE
 //Combo
@@ -121,6 +123,7 @@ enum {
 	TD_XVOL,
 	TD_XPLY,
 	TD_VVOL,
+	TD_XPSC,
 };
 
 #define KC_SMQT TD(TD_SMQT)
@@ -140,4 +143,5 @@ enum {
 #define KC_XPGU TD(TD_XPGU)
 #define KC_XVOL TD(TD_VVOL)
 #define KC_XPLY TD(TD_XPLY)
+#define KC_XPSC TD(TD_XPSC)
 #endif
