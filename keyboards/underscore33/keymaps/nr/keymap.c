@@ -4,24 +4,24 @@
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT_33_split_kc(
-    ALTQ,   W,   E,   R,   T,   Y,   U,   I,   O,   P, 
+       Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P, 
     CTLA,   S,   D,   F,   G,   H,   J,   K,   L,SMQT,
     SFTZ,   X,   C,   V,   B,   N,   M,ALCO,CTLD,WISL,
-        OSFT,     BS03,  SP04,     EN05,  OSFT //
+        ATAB,     SP03,  BS04,     EN05,  OSFT //
   ),
 
   [_COLEMAK] = LAYOUT_33_split_kc(
-    ALTQ,   W,   F,   P,   G,   J,   L,   U,   Y,SMQT, 
+       Q,   W,   F,   P,   G,   J,   L,   U,   Y,SMQT, 
     CTLA,   R,   S,   T,   D,   H,   N,   E,   I,   O, 
     SFTZ,   X,   C,   V,   B,   K,   M,ALCO,CTLD,WISL, 
-        OSFT,     BS03,  SP04,     EN05,  OSFT //
+        ATAB,     SP03,  BS04,     EN05,  OSFT //
   ),
 
   [_FN03] = LAYOUT_33_split_kc(
     XPGU,HOME,  UP, END, INS,CIRC,AMPR,ASTR,XPRN, DEL, 
-    XPGD,LEFT,DOWN,RGHT, ENT,EXLM,  AT,HASH, DLR,PERC, 
-    VOLD,XCPY,XCTB,XSTB,XPLY,XEQL,XMIN,XBRC,XCBR,XBSL, 
-         TAB,       NO,   XPLY,      ESC,  CAPS //
+    XPGD,LEFT,DOWN,RGHT,    ,EXLM,  AT,HASH, DLR,PERC, 
+    VOLD,XCPY,XCTB,XSTB,XGRV,XEQL,XMIN,XBRC,XCBR,XBSL, 
+         TAB,       NO,   XPLY,     ENT,  CAPS //
   ),
   
   [_FN04] = LAYOUT_33_split_kc(
@@ -32,9 +32,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_FN05] = LAYOUT_33_split_kc(
-     RST,  NO,  NO,  NO,  NO,    7,   8,   9,PPLS,PMNS, 
-    QWER,  NO,  M1,  M3,  M2,    4,   5,   6,PAST,PSLS, 
-    COLE,  NO,CAPW,CAPC,CAPG,    1,   2,   3,PDOT,    , 
+     RST,RTOG,RVAI,RVAD,RSAI,    7,   8,   9,PPLS,PMNS, 
+    QWER,RMOD,  M1,  M3,  M2,    4,   5,   6,PAST,PSLS, 
+    COLE,RHUI,CAPW,CAPC,CAPG,    1,   2,   3,PDOT,    , 
           M1,       NO,    NO,       NO,   0   //
   ),
 /*
