@@ -8,7 +8,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	   ALTA,   Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,XBRC,RBRC,   XBSL,		
 	   LCTL,CTLA,   S,   D,   F,   G,   H,   J,   K,   L,SMQT,QUOT,        ENT,		
 	     OSFT,   Z,   X,   C,   V,   B,   N,   M,COMM, DOT,SLSH,XGRV,     RSFT,		
-          APP, LGUI, LALT,      SPC, BS03,       EN04, EN05,LEFT,DOWN,  UP,RGHT			
+          APP, LGUI, LALT,     SP03, BS04,       EN05, EN05,LEFT,DOWN,  UP,RGHT			
 	),
 	
 	[_COLEMAK] = LAYOUT_kc( 
@@ -16,7 +16,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	   ALTA,   Q,   W,   F,   P,   G,   J,   L,   U,   Y,SMQT,XBRC,RBRC,   XBSL,		
 	   LCTL,CTLA,   R,   S,   T,   D,   H,   N,   E,   I,   O,QUOT,        ENT,		
 	     OSFT,   Z,   X,   C,   V,   B,   K,   M,COMM, DOT,SLSH,XGRV,     RSFT,		
-          APP, LGUI, LALT,      SPC, EN03,       BS04, EN05,LEFT,DOWN,  UP,RGHT			
+          APP, LGUI, LALT,     SP03, BS04,       EN05, EN05,LEFT,DOWN,  UP,RGHT			
 	),
 	
 	[_FN03] = LAYOUT_kc(
