@@ -23,8 +23,8 @@ enum custom_keycodes {
   M1, M2, M3, M4, M5, M6
 };
 
-#define KC_QWER QWERTY 
-#define KC_COLE COLEMAK 
+#define KC_QWER QWERTY
+#define KC_COLE COLEMAK
 #define KC_FN03 FN03
 #define KC_FN04 FN04
 #define KC_FN05 FN05
@@ -82,6 +82,7 @@ enum custom_keycodes {
 #define KC_ALCO LALT_T(KC_COMM)
 #define KC_CTLD LCTL_T(KC_DOT)
 #define KC_WISL GUI_T(KC_SLSH)
+#define KC_WINZ GUI_T(KC_Z)
 #define KC_SFTX LSFT_T(KC_X)
 #define KC_SFTZ LSFT_T(KC_Z)
 #define KC_SFTM LSFT_T(KC_M)
